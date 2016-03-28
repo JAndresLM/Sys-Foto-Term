@@ -1,0 +1,87 @@
+html, body {
+  max-width: 100%;
+  margin:0px;
+  padding:0px;
+  overflow-x: hidden;
+}
+
+#header{
+  background-color: Teal;
+  color: white;
+  height: 20px;
+}
+
+#contenedorPrincipal{
+
+}
+
+#footer{
+  background-color: Teal;
+  height: 40px;
+  color: white;
+  /*position: fixed;
+  bottom: 0;
+  width: 100%;*/
+}
+
+#formLogin{
+  width: 100%;
+  margin-top: 30%;
+  /*border: solid black 1px;*/
+}
+
+#formLogin h3{
+  color: LightSeaGreen;
+  font-weight: bold;
+}
+
+#formLogin button{
+  background-color: Teal;
+  color: white;
+}
+
+#formLogin button:hover{
+  font-weight: bold;
+}
+
+#cSaludo{
+  border-bottom: solid Teal 2px;
+}
+
+#panelGraficos{
+  height: 480px;
+}
+
+#panelResultado{
+  height: 96px;
+}
+
+/************************/
+/* Center the loader */
+#loader {
+  margin-top: 30px;
+  margin-left: 300px;
+  width: 350px;
+  height: 350px;
+  border: 50px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 50px solid #3498db;
+  width: 350px;
+  height: 350px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#grafico{
+  overflow: scroll;
+}

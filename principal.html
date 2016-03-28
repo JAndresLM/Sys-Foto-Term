@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electro</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/stilos.css">
+  <script src="js/Chart.min.js"></script>
+</head>
+<body onload="myFunction()">
+  <div id="header" class="row container-fluid"></div>
+  <div id="contenedorPrincipal" class=" main container-fluid row">
+    <nav id="cSaludo" class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>SISTEMA FOTO-TERM</strong></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-user"></span> Andres Lopez <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Cerrar Sesion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">OPCIONES</h3>
+            </div>
+            <div class="panel-body">
+              <form class="" action="" method="post">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Lugar&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <select class="form-control" name="">
+                      <option value="">Lecheria</option>
+                      <option value="">TEC</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Sistema</div>
+                    <select class="form-control" name="">
+                      <option value="">Fotovoltaico</option>
+                      <option value="">Termico</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Dato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <select class="form-control" name="">
+                      <option value="">Kw Producidos</option>
+                      <option value="">Kw Consumidos</option>
+                      <option value="">Kw Diferencia</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Periodo</div>
+                    <select class="form-control" name="">
+                      <option value="">Dia</option>
+                      <option value="">Semana</option>
+                      <option value="">Mes</option>
+                      <option value="">Año</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Fecha&nbsp;&nbsp;</div>
+                    <input type="date" class="form-control" name="name" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="sumit" class="btn btn-success btn-block">
+                    <span class="glyphicon glyphicon-cog" onclick="myFunction()"> PROCESAR <span class="glyphicon glyphicon-cog">
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+          <div id="panelResultado" class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">RESULTADO</h3>
+            </div>
+            <div class="panel-body">
+              <strong><big>165 Kwtts/h</big></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container col-xs-12 col-sm-12 col-md-9 col-lg-9">
+      <div id="panelGraficos" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center">GRAFICOS</h3>
+        </div>
+        <div class="panel-body">
+          <div id="loader" style="display:none;"></div>
+          <div id="grafico" style="display:none;">
+            <canvas id="chart-bar" width="975px" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <nav id="footer" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <h5 class="text-center">&copy; Sitio Web desarrollado por Andrés López</h5>
+    </div>
+  </nav>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js" charset="utf-8"></script>
+  <script>
+  var data = {
+    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"],
+    datasets: [
+      {
+        label: "Kw Producidos",
+        fillColor: "RoyalBlue",
+        strokeColor: "RoyalBlue",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 5]
+      },
+      {
+        label: "Kw Consumidos",
+        fillColor: "SeaGreen",
+        strokeColor: "SeaGreen",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86]
+      }
+    ]
+  };
+  //var myBarChart = new Chart(ctx).Bar(data);
+  var ctx2 = document.getElementById("chart-bar").getContext("2d");
+  </script>
+  <script>
+  var myVar;
+
+  function myFunction() {
+    document.getElementById("grafico").style.display = "none";
+    document.getElementById("loader").style.display = "block";
+    myVar = setTimeout(showPage, 1500);
+  }
+
+  function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("grafico").style.display = "block";
+    window.myBar = new Chart(ctx2).Bar(data);
+  }
+  </script>
+</body>
+</html>
