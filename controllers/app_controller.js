@@ -1,0 +1,13 @@
+var app=angular.module("AppSysFotoTerm",["ngRoute"]);
+app.config(function($routeProvider){
+	$routeProvider
+		.when("/",{
+			controller:"LoginController",
+			templateUrl:"views/login_form_view.html"
+		})
+		.when("/principal",{
+			controller:"MainController",
+			templateUrl:"views/main_view.html"
+		})
+		.otherwise("/");
+});

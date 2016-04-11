@@ -1,0 +1,104 @@
+<nav id="cSaludo" class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand"><strong>SISTEMA FOTO-TERM</strong></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<span class="glyphicon glyphicon-user"></span> Andres Lopez <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="" ng-click="cerrarSesion()">Cerrar Sesion</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+	<div id="panelOpciones" class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">OPCIONES</h3>
+		</div>
+		<div class="panel-body">
+			<form class="" action="" method="post">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">Lugar&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						<select class="form-control" name="">
+							<option value="">Lecheria</option>
+							<option value="">TEC</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">Sistema</div>
+						<select class="form-control" name="">
+							<option value="">Fotovoltaico</option>
+							<option value="">Termico</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">Dato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						<select class="form-control" name="">
+							<option value="">Kw Producidos</option>
+							<option value="">Kw Consumidos</option>
+							<option value="">Kw Diferencia</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">Periodo</div>
+						<select class="form-control" name="">
+							<option value="">Dia</option>
+							<option value="">Semana</option>
+							<option value="">Mes</option>
+							<option value="">Año</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">Fecha&nbsp;&nbsp;</div>
+						<input type="date" class="form-control" name="name" value="">
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block">REALIZAR CONSULTA</button>
+				</div>
+				</form>
+				<div class="form-group">
+					<button class="btn btn-success btn-block">VER REPORTES</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container col-xs-12 col-sm-12 col-md-9 col-lg-9">
+	<div id="panelGraficos" class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title text-center">GRAFICOS</h3>
+			</div>
+			<div class="panel-body">
+				<div id="loader" style="display:none;"></div>
+				<div id="grafico" style="display:none;">
+					<canvas id="chart-bar" width="975px" height="400"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
