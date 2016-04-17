@@ -1,7 +1,8 @@
 var app=angular.module("AppSysFotoTerm");
 app.controller("LoginController",function($scope,$http,$location){
-	$scope.username="AndresLM";
-	$scope.password="123456";
+	$scope.username="";
+	$scope.password="";
+    $scope.nombre="";
 	$scope.mostrar=false;
 	$scope.ocultar=true;
 
@@ -9,24 +10,19 @@ app.controller("LoginController",function($scope,$http,$location){
 		$scope.mostrar=false;
 		$scope.ocultar=true;
         
-        /*$scope.mensaje="";
-        $http.get("http://localhost:8000/Models/validarLogin.php?txtUsername="+$scope.username+"&txtPassword="+$scope.password)
+        $http.get("http://localhost/AsistElectro/models/validar_login.php?txtUsername="+$scope.username+"&txtPassword="+$scope.password)
             .success(function (data){
-                listaGlobal=data;
-                $scope.tipo=listaGlobal[0].uTipo;
-                if($scope.tipo==='E'){$location.path("/Estudiante");}
-                else if($scope.tipo==='P'){$location.path("/Profesor");}
-                else{$scope.mensaje="Credenciales Incorrectos";}
+                if(data[0].acceso==='concedido'){
+                    $scope.nombre=data[0].uNombre;
+                    $location.path("/principal");
+                }else{
+                    $scope.mostrar=true;
+                    $scope.ocultar=false;
+                }      
             })
             .error(function (err){
-               $scope.mensaje="Ha ocurrido un error :( ";
-            });*/
-
-        if($scope.username=='AndresLM' && $scope.password=='123456'){
-        	$location.path("/principal");
-        }else{
-        	$scope.mostrar=true;
-			$scope.ocultar=false;
-        }
+                $scope.mostrar=true;
+                $scope.ocultar=false;
+            });
     };
 });	
