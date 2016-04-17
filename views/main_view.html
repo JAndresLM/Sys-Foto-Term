@@ -1,4 +1,4 @@
-<nav id="cSaludo" class="navbar navbar-default">
+<nav id="cSaludo" class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,10 +15,10 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<span class="glyphicon glyphicon-user"></span> Andres Lopez <span class="caret"></span>
+						<span class="glyphicon glyphicon-user"></span> {{nombre}}<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="" ng-click="cerrarSesion()">Cerrar Sesion</a></li>
+						<li ng-click="cerrarSesion()"><a>Cerrar Sesion</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -85,20 +85,20 @@
 				<div class="form-group">
 					<button class="btn btn-success btn-block">VER REPORTES</button>
 				</div>
-			</div>
 		</div>
 	</div>
+</div>
 
-	<div class="container col-xs-12 col-sm-12 col-md-9 col-lg-9">
+<div class="container col-xs-12 col-sm-12 col-md-9 col-lg-9">
 	<div id="panelGraficos" class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title text-center">GRAFICOS</h3>
-			</div>
-			<div class="panel-body">
-				<div id="loader" style="display:none;"></div>
-				<div id="grafico" style="display:none;">
-					<canvas id="chart-bar" width="975px" height="400"></canvas>
-				</div>
+		<div class="panel-heading">
+			<h3 class="panel-title text-center">GRAFICOS</h3>
+		</div>
+		<div class="panel-body">
+			<div id="loader" style="display:none;"></div>
+			<div id="grafico" style="display:none;">
+				<canvas id="chart-bar" width="975px" height="400"></canvas>
 			</div>
 		</div>
 	</div>
+</div>
