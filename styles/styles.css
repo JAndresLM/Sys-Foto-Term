@@ -51,15 +51,23 @@ li{
 }
 
 #panelGraficos{
-  height: 480px;
+  height: 532px;
+  overflow: scroll;
 }
 
 #panelOpciones{
-  height: 480px;
+  height: 350px;
 }
 
-/************************/
-/* Center the loader */
+#panelReportes{
+  height: 160px;
+}
+
+#grafico{
+  overflow: scroll;
+}
+
+/******************************** ANIMACION DEL LOADER ********************************************/
 #loader {
   margin-top: 30px;
   margin-left: 300px;
@@ -84,6 +92,15 @@ li{
   100% { transform: rotate(360deg); }
 }
 
-#grafico{
-  overflow: scroll;
+/******************************** MEDIA QUERYS ********************************************/
+@media screen and (max-width: 480px) and (min-width: 320px){
+    #formLogin{
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 640px) and (min-width: 480px){
+    #formLogin{
+    margin-top: 35%;
+  }
 }

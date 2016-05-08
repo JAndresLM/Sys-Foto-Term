@@ -1,4 +1,5 @@
 var app=angular.module("AppSysFotoTerm",["ngRoute"]);
+
 app.config(function($routeProvider){
 	$routeProvider
 		.when("/",{
