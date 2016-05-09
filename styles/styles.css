@@ -67,6 +67,11 @@ li{
   overflow: scroll;
 }
 
+#grafico #chart-bar{
+  width: 950px;
+  height: 425px;
+}
+
 /******************************** ANIMACION DEL LOADER ********************************************/
 #loader {
   margin-top: 30px;
@@ -94,13 +99,22 @@ li{
 
 /******************************** MEDIA QUERYS ********************************************/
 @media screen and (max-width: 480px) and (min-width: 320px){
-    #formLogin{
+  #formLogin{
     margin-top: 5%;
   }
 }
 
 @media screen and (max-width: 640px) and (min-width: 480px){
-    #formLogin{
+  #formLogin{
     margin-top: 35%;
+  }
+
+  #panelGraficos{
+    height: 400px;
+  }
+
+  #grafico #chart-bar{
+    width: 800px;
+    height: 400px;
   }
 }

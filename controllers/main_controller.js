@@ -35,9 +35,12 @@ app.controller("MainController",function($scope,$http,$location){
 		//myVar = setTimeout(showPage, 1500);
     	document.getElementById("vacio").style.display = "none";
     	document.getElementById("loader").style.display = "block";
-    	var myVar =setTimeout(1500);
-    	document.getElementById("loader").style.display = "none";
-    	document.getElementById("grafico").style.display = "block";
+    	var delay=0;
+		setTimeout(function() {
+		 	document.getElementById("loader").style.display = "none";
+    		document.getElementById("grafico").style.display = "block";
+		}, delay);
+    	
 		var ctx2 = document.getElementById("chart-bar").getContext("2d");
 		window.myBar = new Chart(ctx2).Bar(data);
 	};

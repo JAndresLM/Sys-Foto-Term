@@ -21,7 +21,7 @@ app.controller("LoginController",function($scope,$http,$location,MyService){
                 if(data[0].acceso==='concedido'){
                     $scope.nombre=data[0].uNombre;
                     //MyService.data.name = $scope.nombre;
-                    $location.path("/principal");
+                    $location.path("/home");
                 }else{
                     $scope.mensaje=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";
                     $scope.mostrar=true;
