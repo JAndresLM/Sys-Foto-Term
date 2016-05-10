@@ -25,14 +25,69 @@ app.controller("MainController",function($scope,$http,$location){
 	};
 
 	$scope.nombre="Usuario  ";
+	
+	$scope.datos={
+		sys1:{nombre:"Térmico", lista:["Sensor 1","Sensor 2", "Sensor 3"]},
+		sys2:{nombre:"Fotovoltaico", lista:["Kw Producidos","Kw Consumidos", "Diferencia"]}
+	}
+	$scope.lugares=[];
+	//$scope.selectedSys=$scope.datos.sys1;
+	$scope.datosTermico=["Sensor 1","Sensor 2", "Sensor 3"];
+	$scope.datosFotovoltaico=["Kw Producidos","Kw Consumidos", "Diferencia"];
+
+	//FUNCION PARA CARGAR LOS LUGARES DE LA BASE DE DATOS
+	$scope.cargarLugares=function (){
+		$http.get("http://localhost/AsistElectro/models/obtener_lugares.php?")
+            .success(function (data){
+                $scope.lugares=data;      
+            })
+            .error(function (err){
+                $scope.lugares=[];
+            });
+	};
+	$scope.cargarLugares();
+
+	//FUNCION PARA ACTUALIZAR COMBOBOX DE DATOS SOLICITADOS
+	$scope.actualizarComboBoxSistema=function (){
+		var s1 = document.getElementById("slct_sistema");
+		var s2 = document.getElementById("slct_dato");
+		s2.innerHTML = "";
+		if(s1.value == "sf"){
+			var optionArray = ["|","kwp|Kw Producidos","kwc|Kw Consumidos","kwd|Diferencia"];
+		} else if(s1.value == "st"){
+			var optionArray = ["|","ts1|Sensor 1","ts2|Sensor 2","ts3|Sensor 3"];
+		}
+		
+		for(var option in optionArray){
+			var pair = optionArray[option].split("|");
+			var newOption = document.createElement("option");
+			newOption.value = pair[0];
+			newOption.innerHTML = pair[1];
+			s2.options.add(newOption);
+		}
+	};
+
+	//FUNCION PARA ACTUALIZAR COMBOBOX DE DATOS SOLICITADOS
+	$scope.actualizarComboBoxTiempo=function (){
+		var st = document.getElementById("slct_tiempo");
+		if(st.value == "td"){
+			document.getElementById("calendario").type="date";
+		} else if(st.value == "ts"){
+			document.getElementById("calendario").type="week";
+		} else if(st.value == "tm"){
+			document.getElementById("calendario").type="month";
+		} else if(st.value == "ta"){
+			document.getElementById("calendario").type="month";
+		}
+	};
 
 	//FUNCION DE LOGOUT 
 	$scope.cerrarSesion=function (){
 		$location.path("/");
 	};
 
+	//FUNCION CARGAR DATOS EN EL GRAFICO
 	$scope.cargarGrafico=function(){
-		//myVar = setTimeout(showPage, 1500);
     	document.getElementById("vacio").style.display = "none";
     	document.getElementById("loader").style.display = "block";
     	var delay=0;

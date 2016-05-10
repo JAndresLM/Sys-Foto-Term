@@ -36,45 +36,43 @@
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Lugar&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<select class="form-control" name="">
-							<option value="">Selecione una opción</option>
+						<select class="form-control">
+							<option value="{{x.nombre_lugar}}" ng-repeat="x in lugares">{{x.nombre_lugar}}</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Sistema</div>
-						<select class="form-control" name="">
-							<option value="">Fotovoltaico</option>
-							<option value="">Termico</option>
+						<select id="slct_sistema" class="form-control" ng-model="systemSelected" ng-change="actualizarComboBoxSistema()">
+							<option value="sf">Fotovoltaico</option>
+							<option value="st">Termico</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Dato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<select class="form-control" name="">
-							<option value="">Kw Producidos</option>
-							<option value="">Kw Consumidos</option>
-							<option value="">Kw Diferencia</option>
+						<select id="slct_dato" class="form-control">
+								
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Periodo</div>
-						<select class="form-control" name="">
-							<option value="">Dia</option>
-							<option value="">Semana</option>
-							<option value="">Mes</option>
-							<option value="">Año</option>
+						<select id="slct_tiempo" class="form-control" ng-model="timeSelected" ng-change="actualizarComboBoxTiempo()">
+							<option value="td">Dia</option>
+							<option value="ts">Semana</option>
+							<option value="tm">Mes</option>
+							<option value="ta">Año</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Fecha&nbsp;&nbsp;</div>
-						<input type="date" class="form-control" name="name" value="">
+						<input id="calendario" type="date" class="form-control" name="name" value="">
 					</div>
 				</div>
 				<div class="form-group">
