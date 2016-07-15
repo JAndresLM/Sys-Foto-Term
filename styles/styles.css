@@ -27,22 +27,22 @@ li{
   color: white;
 }
 
-#formLogin{
+#loginForm{
   width: 100%;
   margin-top: 30%;
 }
 
-#formLogin h3{
+#loginForm h3{
   color: LightSeaGreen;
   font-weight: bold;
 }
 
-#formLogin button{
+#loginForm .btn{
   background-color: Teal;
   color: white;
 }
 
-#formLogin button:hover{
+#loginForm .btn:hover{
   font-weight: bold;
 }
 
@@ -99,13 +99,13 @@ li{
 
 /******************************** MEDIA QUERYS ********************************************/
 @media screen and (max-width: 480px) and (min-width: 320px){
-  #formLogin{
+  #loginForm{
     margin-top: 5%;
   }
 }
 
 @media screen and (max-width: 640px) and (min-width: 480px){
-  #formLogin{
+  #loginForm{
     margin-top: 35%;
   }
 

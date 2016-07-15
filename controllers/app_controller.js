@@ -3,7 +3,7 @@ var app=angular.module("AppSysFotoTerm",["ngRoute"]);
 app.config(function($routeProvider){
 	$routeProvider
 		.when("/",{
-			controller:"LoginController",
+			controller:"",
 			templateUrl:"views/login_form_view.html"
 		})
 		.when("/home",{

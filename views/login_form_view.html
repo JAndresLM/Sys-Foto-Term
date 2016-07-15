@@ -1,6 +1,12 @@
 <div class="col-xs-1 col-sm-3 col-md-4 col-lg-4"></div>
 <div class="container col-xs-10 col-sm-6 col-md-4 col-lg-4">
-<form id="formLogin" class="form-horizontal" method="post">
+	<form 
+		id="loginForm"
+		name="loginForm" 
+	    ng-controller="LoginController as loginCtrl"
+	    ng-submit="loginForm.$valid && loginCtrl.startSession() && resetForm(loginForm)"
+		class="form-horizontal" 
+	>
 		<div class="form-group">
 			<h3 class="text-uppercase text-center">Sistema Fotovoltaico y Térmico</h3>
 		</div>
@@ -8,7 +14,7 @@
 			<label for="txtUsername" class="control-label sr-only">Nombre de Usuario</label>
 			<div class="input-group">
 				<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-				<input type="text" class="form-control input-lg text-center" name="txtUsername" placeholder="Nombre de Usuario" required ng-model="username">
+				<input type="text" class="form-control input-lg text-center" name="txtUsername" placeholder="Nombre de Usuario" required ng-model="loginCtrl.username">
 			</div>
 		</div>
 		<div class="form-group">
@@ -17,14 +23,19 @@
 				<div class="input-group-addon">
 					<span class="glyphicon glyphicon-lock"></span>
 				</div>
-				<input type="password" class="form-control input-lg text-center" name="txtPassword" placeholder="Contraseña" required ng-model="password">
+				<input type="password" class="form-control input-lg text-center" name="txtPassword" placeholder="Contraseña" required ng-model="loginCtrl.password">
 			</div>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-lg btn-default btn-block" ng-click="iniciarSesion()">INICIAR SESIÓN</button>
+			<input 
+                  type="submit"
+                  value="INICIAR SESIÓN" 
+                  class="btn btn-lg btn-default btn-block"
+                  ng-disabled="loginForm.$invalid"
+            />  
 		</div>
-		<div class="alert alert-danger form-group" ng-show="mostrar" ng-hide="ocultar">
-		    <strong>AVISO!</strong> {{mensaje}}
+		<div class="alert alert-danger form-group" ng-show="loginCtrl.show" ng-hide="loginCtrl.hide">
+		    <strong>AVISO!</strong> {{loginCtrl.message}}
 		</div>
 	</form>
 </div>

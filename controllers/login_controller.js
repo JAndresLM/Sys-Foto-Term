@@ -1,37 +1,41 @@
-var app=angular.module("AppSysFotoTerm");
-app.factory("MyService", function() {
-    //var data = {"name":"no se"};
-    var data = new Object();
-    return data;
-});
-app.controller("LoginController",function($scope,$http,$location,MyService){
-	$scope.username="";
-	$scope.password="";
-    $scope.mensaje="";
-    $scope.nombre="";
-	$scope.mostrar=false;
-	$scope.ocultar=true;
+(function(){
+    var app=angular.module("AppSysFotoTerm");
 
-	$scope.iniciarSesion=function (){
-		$scope.mostrar=false;
-		$scope.ocultar=true;
-        
-        $http.get("http://localhost/AsistElectro/models/validar_login.php?txtUsername="+$scope.username+"&txtPassword="+$scope.password)
-            .success(function (data){
-                if(data[0].acceso==='concedido'){
-                    $scope.nombre=data[0].uNombre;
-                    //MyService.data.name = $scope.nombre;
-                    $location.path("/home");
-                }else{
-                    $scope.mensaje=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";
-                    $scope.mostrar=true;
-                    $scope.ocultar=false;
-                }      
-            })
-            .error(function (err){
-                $scope.mensaje=" Ha ocurrido un error con el acceso a la base de datos. Por favor inténtelo nuevamente.";
-                $scope.mostrar=true;
-                $scope.ocultar=false;
-            });
-    };
-});	
+    app.run(function($rootScope){
+        $rootScope.resetForm = function(form){
+            form.$setPristine();
+        };
+    })
+
+    app.controller("LoginController",function($http,$location){
+        var loginCtrl=this;
+        loginCtrl.username="";
+        loginCtrl.password="";
+        loginCtrl.message="";
+        loginCtrl.name="";
+        loginCtrl.show=false;
+        loginCtrl.hide=true;
+
+        loginCtrl.startSession=function (){
+            loginCtrl.show=false;
+            loginCtrl.hide=true;
+            
+            $http.get("./models/validar_login.php?txtUsername="+loginCtrl.username+"&txtPassword="+loginCtrl.password)
+                .success(function (data){
+                    if(data[0].access==='concedido'){
+                        loginCtrl.name=data[0].uNombre;
+                        $location.path("/home");
+                    }else{
+                        loginCtrl.message=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";
+                        loginCtrl.show=true;
+                        loginCtrl.hide=false;
+                    }      
+                })
+                .error(function (err){
+                    loginCtrl.message=" Ha ocurrido un error con el acceso a la base de datos. Por favor inténtelo nuevamente.";
+                    loginCtrl.show=true;
+                    loginCtrl.hide=false;
+                });
+        };
+    });
+})();	

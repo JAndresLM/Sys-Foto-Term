@@ -11,10 +11,10 @@
 		$user = array();
 		if ($row=pg_fetch_row($result))
 		{
-			$user[] = array('acceso' =>'concedido', 'uNombre' => $row[0]);
+			$user[] = array('access' =>'concedido', 'uNombre' => $row[0]);
 		}
 	}else{
-	    $user[] = array('acceso' =>'denegado', 'uNombre' => 'desconocido');
+	    $user[] = array('access' =>'denegado', 'uNombre' => 'desconocido');
 	}
 	echo json_encode($user);
 ?>
