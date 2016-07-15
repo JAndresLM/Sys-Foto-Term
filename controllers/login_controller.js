@@ -20,10 +20,10 @@
             loginCtrl.show=false;
             loginCtrl.hide=true;
             
-            $http.get("./models/validar_login.php?txtUsername="+loginCtrl.username+"&txtPassword="+loginCtrl.password)
+            $http.get("./models/get_user.php?txtUsername="+loginCtrl.username+"&txtPassword="+loginCtrl.password)
                 .success(function (data){
-                    if(data[0].access==='concedido'){
-                        loginCtrl.name=data[0].uNombre;
+                    if(data[0].access==='accepted'){
+                        loginCtrl.name=data[0].uName;
                         $location.path("/home");
                     }else{
                         loginCtrl.message=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";

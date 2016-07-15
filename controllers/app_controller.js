@@ -7,7 +7,7 @@ app.config(function($routeProvider){
 			templateUrl:"views/login_form_view.html"
 		})
 		.when("/home",{
-			controller:"MainController",
+			controller:"",
 			templateUrl:"views/main_view.html"
 		})
 		.otherwise("/");

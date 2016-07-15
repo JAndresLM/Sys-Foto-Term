@@ -37,7 +37,7 @@ app.controller("MainController",function($scope,$http,$location){
 
 	//FUNCION PARA CARGAR LOS LUGARES DE LA BASE DE DATOS
 	$scope.cargarLugares=function (){
-		$http.get("http://localhost/AsistElectro/models/obtener_lugares.php?")
+		$http.get("http://localhost/AsistElectro/models/get_places.php?")
             .success(function (data){
                 $scope.lugares=data;      
             })

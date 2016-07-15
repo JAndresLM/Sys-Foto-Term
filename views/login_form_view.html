@@ -13,8 +13,17 @@
 		<div class="form-group">
 			<label for="txtUsername" class="control-label sr-only">Nombre de Usuario</label>
 			<div class="input-group">
-				<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-				<input type="text" class="form-control input-lg text-center" name="txtUsername" placeholder="Nombre de Usuario" required ng-model="loginCtrl.username">
+				<div class="input-group-addon">
+					<span class="glyphicon glyphicon-user"></span>
+				</div>
+				<input 
+					type="text" 
+					class="form-control input-lg text-center" 
+					name="txtUsername" 
+					placeholder="Nombre de Usuario" 
+					ng-model="loginCtrl.username"
+					required
+				>
 			</div>
 		</div>
 		<div class="form-group">
@@ -23,7 +32,14 @@
 				<div class="input-group-addon">
 					<span class="glyphicon glyphicon-lock"></span>
 				</div>
-				<input type="password" class="form-control input-lg text-center" name="txtPassword" placeholder="Contraseña" required ng-model="loginCtrl.password">
+				<input 
+					type="password"
+					class="form-control input-lg text-center" 
+					name="txtPassword" 
+					placeholder="Contraseña"
+					ng-model="loginCtrl.password"
+					required
+				>
 			</div>
 		</div>
 		<div class="form-group">
@@ -34,7 +50,11 @@
                   ng-disabled="loginForm.$invalid"
             />  
 		</div>
-		<div class="alert alert-danger form-group" ng-show="loginCtrl.show" ng-hide="loginCtrl.hide">
+		<div 
+			class="alert alert-danger form-group"
+			ng-show="loginCtrl.show" 
+			ng-hide="loginCtrl.hide"
+		>
 		    <strong>AVISO!</strong> {{loginCtrl.message}}
 		</div>
 	</form>
