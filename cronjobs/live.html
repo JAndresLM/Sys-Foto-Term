@@ -1,0 +1,145 @@
+{
+	"language" : "es",
+	"headers" : [
+	{
+		"id" : "00_0010_4111_0100",
+		"description" : "VBus 0: DeltaSol AL",
+		"channel" : 0,
+		"destination_address" : 16,
+		"source_address" : 16657,
+		"protocol_version" : 16,
+		"command" : 256,
+		"info" : 0,
+		"destination_name" : "DFA",
+		"source_name" : "DeltaSol AL",
+		"fields" : [
+		{
+			"id" : "000_2_0",
+			"name" : "Temperature sensor 1",
+			"unit" : " \u00B0C",
+			"unit_code" : "DegreesCelsius"
+		},
+		{
+			"id" : "002_2_0",
+			"name" : "Temperature sensor 2",
+			"unit" : " \u00B0C",
+			"unit_code" : "DegreesCelsius"
+		},
+		{
+			"id" : "004_2_0",
+			"name" : "Temperature sensor 3",
+			"unit" : " \u00B0C",
+			"unit_code" : "DegreesCelsius"
+		},
+		{
+			"id" : "006_2_0",
+			"name" : "Temperature sensor 4",
+			"unit" : " \u00B0C",
+			"unit_code" : "DegreesCelsius"
+		},
+		{
+			"id" : "008_1_0",
+			"name" : "Pump speed relay 1",
+			"unit" : "%",
+			"unit_code" : "Percent"
+		},
+		{
+			"id" : "010_2_0",
+			"name" : "Status display",
+			"unit" : "",
+			"unit_code" : "None"
+		},
+		{
+			"id" : "012_2_0",
+			"name" : "Operating hours relay 1",
+			"unit" : " h",
+			"unit_code" : "Hours"
+		},
+		{
+			"id" : "016_4_0",
+			"name" : "Heat quantity",
+			"unit" : " Wh",
+			"unit_code" : "WattHours"
+		}
+		]
+	},
+	{
+		"id" : "00_0015_4111_0100",
+		"description" : "VBus 0: DeltaSol AL => Standard-Infos",
+		"channel" : 0,
+		"destination_address" : 21,
+		"source_address" : 16657,
+		"protocol_version" : 16,
+		"command" : 256,
+		"info" : 0,
+		"destination_name" : "Standard-Infos",
+		"source_name" : "DeltaSol AL",
+		"fields" : [
+		]
+	}
+	],
+	"headerset_stats" : {
+		"headerset_count" : 1,
+		"min_timestamp" : 1466452483.693000,
+		"max_timestamp" : 1466452483.693000
+	},
+	"headersets" : [
+	{
+		"timestamp" : 1466452483.693000,
+		"packets" : [
+		{
+			"header_index" : 0,
+			"timestamp" : 1466452483.413000,
+			"field_values" : [
+			{
+				"field_index" : 0,
+				"raw_value" : 60.600000,
+				"value" : "60.6"
+			},
+			{
+				"field_index" : 1,
+				"raw_value" : 49.400000,
+				"value" : "49.4"
+			},
+			{
+				"field_index" : 2,
+				"raw_value" : 46.200000,
+				"value" : "46.2"
+			},
+			{
+				"field_index" : 3,
+				"raw_value" : 0.000000,
+				"value" : "0.0"
+			},
+			{
+				"field_index" : 4,
+				"raw_value" : 100.000000,
+				"value" : "100"
+			},
+			{
+				"field_index" : 5,
+				"raw_value" : 0.000000,
+				"value" : "0"
+			},
+			{
+				"field_index" : 6,
+				"raw_value" : 2375.000000,
+				"value" : "2375"
+			},
+			{
+				"field_index" : 7,
+				"raw_value" : 20584621.000000,
+				"value" : "20584621"
+			}
+			]
+		},
+		{
+			"header_index" : 1,
+			"timestamp" : 1466452481.684000,
+			"field_values" : [
+			]
+		}
+		]
+	}
+	]
+}

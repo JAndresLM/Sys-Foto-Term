@@ -46,28 +46,28 @@ li{
   font-weight: bold;
 }
 
-#cSaludo{
+#cHeaderMain{
   border-bottom: solid Teal 2px;
 }
 
-#panelGraficos{
+#panelGraphics{
   height: 532px;
   overflow: scroll;
 }
 
-#panelOpciones{
+#panelOptions{
   height: 400px;
 }
 
-#panelReportes{
+#panelReports{
   height: 110px;
 }
 
-#grafico{
+#graphic{
   overflow: scroll;
 }
 
-#grafico #chart-bar{
+#graphic #chart-bar{
   width: 950px;
   height: 425px;
 }
@@ -109,11 +109,11 @@ li{
     margin-top: 35%;
   }
 
-  #panelGraficos{
+  #panelGraphics{
     height: 400px;
   }
 
-  #grafico #chart-bar{
+  #graphic #chart-bar{
     width: 800px;
     height: 400px;
   }

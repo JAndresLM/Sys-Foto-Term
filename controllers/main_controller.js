@@ -3,9 +3,11 @@
 	app.controller("MainController",function($http,$location){
 		var mainCtrl=this;
 		var dataG = info.data;
+		mainCtrl.dataT = info.table;
+		console.log(mainCtrl.dataT);
 
-		//FUNCION PARA CARGAR LOS LUGARES DE LA BASE DE DATOS
-		mainCtrl.cargarLugares=function (){
+		//FUNCTION TO LOAD PLACES
+		mainCtrl.loadPlaces=function (){
 			$http.get("./models/get_places.php?")
 	            .success(function (data){
 	                mainCtrl.places=data;      
@@ -14,10 +16,10 @@
 	                mainCtrl.places=[];
 	            });
 		};
-		mainCtrl.cargarLugares();
+		mainCtrl.loadPlaces();
 
-		//FUNCION PARA ACTUALIZAR COMBOBOX DE DATOS SOLICITADOS
-		mainCtrl.actualizarComboBoxSistema=function (){
+		//FUNCTION TO UPDATE WHAT VALUES SHOW DEPEND OF THE SYSTEM SELECTED
+		mainCtrl.updateComboBoxData=function (){
 			var s1 = document.getElementById("slct_system");
 			var s2 = document.getElementById("slct_data");
 			s2.innerHTML = "";
@@ -36,8 +38,8 @@
 			}
 		};
 
-		//FUNCION PARA ACTUALIZAR COMBOBOX DE DATOS SOLICITADOS
-		mainCtrl.actualizarComboBoxTiempo=function (){
+		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
+		mainCtrl.updateComboBoxDate=function (){
 			if(mainCtrl.periodSelected === "Día"){
 				document.getElementById("calendar").type="date";
 			} else if(mainCtrl.periodSelected === "Semana"){
@@ -49,18 +51,24 @@
 			}
 		};
 
-		//FUNCION CARGAR DATOS EN EL GRAFICO
-		mainCtrl.cargarGrafico=function(){
-	    	document.getElementById("vacio").style.display = "none";
-	    	document.getElementById("loader").style.display = "block";
+		//FUNCTION TO LOAD A GRAPHIC OR TABLE WITH DATA
+		mainCtrl.processQuery=function(){
+			document.getElementById("cNoResults").style.display = "none";
+	    	//document.getElementById("loader").style.display = "block";
 	    	var delay=0;
-			setTimeout(function() {
-			 	document.getElementById("loader").style.display = "none";
-	    		document.getElementById("grafico").style.display = "block";
-			}, delay);
-	    	
-			var ctx2 = document.getElementById("chart-bar").getContext("2d");
-			window.myBar = new Chart(ctx2).Bar(dataG);
+			if(mainCtrl.modeSelected === "Gráfico"){
+				setTimeout(function() {
+				 	document.getElementById("loader").style.display = "none";
+				 	document.getElementById("table").style.display = "none";
+		    		document.getElementById("graphic").style.display = "block";
+				}, delay);
+		    	
+				var ctx2 = document.getElementById("chart-bar").getContext("2d");
+				window.myBar = new Chart(ctx2).Bar(dataG);
+			}else{
+				document.getElementById("graphic").style.display = "none";
+				document.getElementById("table").style.display = "block";
+			}
 		};
 	});
 })();

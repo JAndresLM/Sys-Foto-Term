@@ -1,5 +1,5 @@
 <nav 
-	id="cSaludo"
+	id="cHeaderMain"
 	class="navbar navbar-default navbar-fixed-top"
 	ng-controller="LoginController as loginCtrl"
 >
@@ -50,7 +50,7 @@
 </nav>
 
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-controller="MainController as mainCtrl">
-	<div id="panelOpciones" class="panel panel-primary">
+	<div id="panelOptions" class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title text-center">OPCIONES</h3>
 		</div>
@@ -58,7 +58,7 @@
 			<form 
 				id="mainForm"
 				name="mainForm"
-				ng-submit="mainForm.$valid && mainCtrl.cargarGrafico() && resetForm(mainForm)"
+				ng-submit="mainForm.$valid && mainCtrl.processQuery()"
 				class=""
 			>
 				<div class="form-group">
@@ -68,8 +68,8 @@
 							id="slct_place" 
 							class="form-control"
 							ng-options="p.place for p in mainCtrl.places"
-							ng-model="mainCtrl.placeSelected" 
-							required>
+							ng-model="mainCtrl.placeSelected"
+						>
 						</select>
 					</div>
 				</div>
@@ -81,8 +81,8 @@
 							class="form-control"
 							ng-options="systems for systems in ['Fotovoltaico','Termico']"  
 							ng-model="mainCtrl.systemSelected" 
-							ng-change="mainCtrl.actualizarComboBoxSistema()"
-							required>
+							ng-change="mainCtrl.updateComboBoxData()"
+						>
 						</select>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 						<select
 							id="slct_data"
 							class="form-control"
-							required>		
+						>		
 						</select>
 					</div>
 				</div>
@@ -104,8 +104,8 @@
 							class="form-control"
 							ng-options="periods for periods in ['Día','Semana','Mes','Año']" 
 							ng-model="mainCtrl.periodSelected" 
-							ng-change="mainCtrl.actualizarComboBoxTiempo()" 
-							required>
+							ng-change="mainCtrl.updateComboBoxDate()" 
+						>
 						</select>
 					</div>
 				</div>
@@ -118,7 +118,6 @@
 							type="date"
 							ng-model="mainCtrl.dateSelected"  
 							class="form-control"
-							required
 						>
 					</div>
 				</div>
@@ -130,7 +129,7 @@
 							class="form-control"
 							ng-options="modes for modes in ['Gráfico','Tabla']" 
 							ng-model="mainCtrl.modeSelected"
-							required>
+						>
 						</select>
 					</div>
 				</div>
@@ -138,14 +137,14 @@
 					<input 
 		                type="submit"
 		                value="REALIZAR CONSULTA" 
-		                class="btn btn-default btn-success btn-block"
-		            /> 
+		                class="btn btn-default btn-success btn-block" ng-disabled="mainForm.$invalid"
+		            /><!--ng-disabled="mainForm.$invalid"--> 
 				</div>
 			</form>
 		</div>
 	</div>
 
-	<div id="panelReportes" class="panel panel-primary">
+	<div id="panelReports" class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title text-center">REPORTES</h3>
 		</div>
@@ -158,17 +157,29 @@
 </div>
 
 <div class="container col-xs-12 col-sm-12 col-md-9 col-lg-9">
-	<div id="panelGraficos" class="panel panel-primary">
+	<div id="panelGraphics" class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title text-center">&nbsp;&nbsp;</h3>
 		</div>
 		<div class="panel-body">
-			<div id="vacio">
+			<div id="cNoResults">
 				<img src="images/sin_resultados.jpg" class="img-responsive center-block" alt="No hay resultados">
 			</div>
 			<div id="loader" style="display:none;"></div>
-			<div id="grafico" style="display:none;">
+			<div id="graphic" style="display:none;">
 				<canvas id="chart-bar" width="950px" height="425"></canvas>
+			</div>
+			<div id="table" style="display:none;">
+				<table class="table table-bordered table-responsive">
+					<tr>
+						<td>Fecha</td>
+						<td>Valor</td>
+					</tr>
+					<tr ng-repeat="v in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]">
+						<td>{{v}}</td>
+						<td>{{v+v}}</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
