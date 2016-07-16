@@ -1,24 +1,47 @@
-<nav id="cSaludo" class="navbar navbar-default navbar-fixed-top">
+<nav 
+	id="cSaludo"
+	class="navbar navbar-default navbar-fixed-top"
+	ng-controller="LoginController as loginCtrl"
+>
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<button 
+				type="button"
+				class="navbar-toggle collapsed"
+				data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false"
+			>
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand"><strong>SYS-FOTO-TERM</strong></a>
+			<a class="navbar-brand">
+				<strong>SYS-FOTO-TERM</strong>
+			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<span class="glyphicon glyphicon-user"></span> {{nombre}}<span class="caret"></span>
+					<a 
+						class="dropdown-toggle"
+						data-toggle="dropdown"
+						role="button"
+						aria-haspopup="true"
+						aria-expanded="false"
+					>
+						<span class="glyphicon glyphicon-user"></span>
+						{{loginCtrl.name}}<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li ng-click="cerrarSesion()"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+						<li ng-click="loginCtrl.closeSession()">
+							<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							Cerrar Sesión
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -26,61 +49,102 @@
 	</div><!-- /.container-fluid -->
 </nav>
 
-<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-controller="MainController as mainCtrl">
 	<div id="panelOpciones" class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title text-center">OPCIONES</h3>
 		</div>
 		<div class="panel-body">
-			<form class="" action="" method="">
+			<form 
+				id="mainForm"
+				name="mainForm"
+				ng-submit="mainForm.$valid && mainCtrl.cargarGrafico() && resetForm(mainForm)"
+				class=""
+			>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Lugar&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<select class="form-control">
-							<option value="{{x.nombre_lugar}}" ng-repeat="x in lugares">{{x.nombre_lugar}}</option>
+						<select 
+							id="slct_place" 
+							class="form-control"
+							ng-options="p.place for p in mainCtrl.places"
+							ng-model="mainCtrl.placeSelected" 
+							required>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Sistema</div>
-						<select id="slct_sistema" class="form-control" ng-model="systemSelected" ng-change="actualizarComboBoxSistema()">
-							<option value="sf">Fotovoltaico</option>
-							<option value="st">Termico</option>
+						<select 
+							id="slct_system" 
+							class="form-control"
+							ng-options="systems for systems in ['Fotovoltaico','Termico']"  
+							ng-model="mainCtrl.systemSelected" 
+							ng-change="mainCtrl.actualizarComboBoxSistema()"
+							required>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Dato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-						<select id="slct_dato" class="form-control">
-								
+						<select
+							id="slct_data"
+							class="form-control"
+							required>		
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-addon">Periodo</div>
-						<select id="slct_tiempo" class="form-control" ng-model="timeSelected" ng-change="actualizarComboBoxTiempo()">
-							<option value="td">Dia</option>
-							<option value="ts">Semana</option>
-							<option value="tm">Mes</option>
-							<option value="ta">Año</option>
+						<div class="input-group-addon">Período</div>
+						<select 
+							id="slct_period"
+							class="form-control"
+							ng-options="periods for periods in ['Día','Semana','Mes','Año']" 
+							ng-model="mainCtrl.periodSelected" 
+							ng-change="mainCtrl.actualizarComboBoxTiempo()" 
+							required>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon">Fecha&nbsp;&nbsp;</div>
-						<input id="calendario" type="date" class="form-control" name="name" value="">
+						<input 
+							id="calendar"
+							name="name" 
+							type="date"
+							ng-model="mainCtrl.dateSelected"  
+							class="form-control"
+							required
+						>
 					</div>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-success btn-block" ng-click="cargarGrafico()">REALIZAR CONSULTA</button>
+					<div class="input-group">
+						<div class="input-group-addon">Modo&nbsp;&nbsp;&nbsp;</div>
+						<select 
+							id="slct_mode"
+							class="form-control"
+							ng-options="modes for modes in ['Gráfico','Tabla']" 
+							ng-model="mainCtrl.modeSelected"
+							required>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<input 
+		                type="submit"
+		                value="REALIZAR CONSULTA" 
+		                class="btn btn-default btn-success btn-block"
+		            /> 
 				</div>
 			</form>
 		</div>
 	</div>
+
 	<div id="panelReportes" class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title text-center">REPORTES</h3>

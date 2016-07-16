@@ -12,7 +12,7 @@
         loginCtrl.username="";
         loginCtrl.password="";
         loginCtrl.message="";
-        loginCtrl.name="";
+        loginCtrl.name=info.name;
         loginCtrl.show=false;
         loginCtrl.hide=true;
 
@@ -24,6 +24,7 @@
                 .success(function (data){
                     if(data[0].access==='accepted'){
                         loginCtrl.name=data[0].uName;
+                        info.name=loginCtrl.name;
                         $location.path("/home");
                     }else{
                         loginCtrl.message=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";
@@ -36,6 +37,11 @@
                     loginCtrl.show=true;
                     loginCtrl.hide=false;
                 });
+        };
+
+        //FUNCION DE LOGOUT 
+        loginCtrl.closeSession=function (){
+            $location.path("/");
         };
     });
 })();	
