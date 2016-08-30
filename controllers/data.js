@@ -11,14 +11,6 @@ var info={
 				highlightStroke: "rgba(220,220,220,1)",
 				data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 5]
 			},
-			{
-				label: "Kw Consumidos",
-				fillColor: "SeaGreen",
-				strokeColor: "SeaGreen",
-				highlightFill: "rgba(151,187,205,0.75)",
-				highlightStroke: "rgba(151,187,205,1)",
-				data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86]
-			}
 		]
 	},
 	table:[[12,25],[11,26],[10,27],[09,28],[08,29],[07,30],[06,31],[05,32],[04,33],[03,34],[02,35],[01,36],[00,38]],

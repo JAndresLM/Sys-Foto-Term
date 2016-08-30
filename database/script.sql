@@ -20,7 +20,7 @@ CREATE TABLE places(
 CREATE TABLE sys_photovoltaic(
    id_sys_foto	SERIAL,
    place_id	INT REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE CASCADE,
-   date_time	TIMESTAMP,
+   date_time	TIMESTAMP  UNIQUE,
    kw_produced DECIMAL,
    kw_consumed DECIMAL,
    radiation	DECIMAL,
@@ -31,7 +31,7 @@ CREATE TABLE sys_photovoltaic(
 CREATE TABLE sys_thermal(
    id_sys_term	SERIAL,
    place_id	INT REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE CASCADE,
-   date_time	TIMESTAMP,
+   date_time	TIMESTAMP UNIQUE,
    sensor1 DECIMAL,
    sensor2 DECIMAL,
    sensor3 DECIMAL,

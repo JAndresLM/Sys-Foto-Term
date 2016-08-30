@@ -2,7 +2,7 @@
 	var app=angular.module("AppSysFotoTerm");
 	app.controller("MainController",function($http,$location){
 		var mainCtrl=this;
-		var dataG = info.data;
+		mainCtrl.dataG = info.data;
 		mainCtrl.dataT = info.table;
 		console.log(mainCtrl.dataT);
 
@@ -56,19 +56,33 @@
 			document.getElementById("cNoResults").style.display = "none";
 	    	//document.getElementById("loader").style.display = "block";
 	    	var delay=0;
-			if(mainCtrl.modeSelected === "Gráfico"){
-				setTimeout(function() {
-				 	document.getElementById("loader").style.display = "none";
-				 	document.getElementById("table").style.display = "none";
-		    		document.getElementById("graphic").style.display = "block";
-				}, delay);
-		    	
-				var ctx2 = document.getElementById("chart-bar").getContext("2d");
-				window.myBar = new Chart(ctx2).Bar(dataG);
-			}else{
-				document.getElementById("graphic").style.display = "none";
-				document.getElementById("table").style.display = "block";
-			}
+	    	$http.get("./models/get_day_values.php?txtDay='2016-08-27 05:30:00'&txtDay2='2016-08-27 18:30:00'&txtSystem=sys_photovoltaic&txtPlace=2&txtElement=kw_produced")
+	            .success(function (data){
+	            	mainCtrl.dataT=data.lines
+	                mainCtrl.dataG.labels=data.lines;
+	                mainCtrl.dataG.datasets[0].data=data.values; 
+
+	                alert(mainCtrl.dataT);
+	                
+	                if(mainCtrl.modeSelected === "Gráfico"){
+						setTimeout(function() {
+						 	document.getElementById("loader").style.display = "none";
+						 	document.getElementById("table").style.display = "none";
+				    		document.getElementById("graphic").style.display = "block";
+						}, delay);
+				    	
+						var ctx2 = document.getElementById("chart-bar").getContext("2d");
+						window.myBar = new Chart(ctx2).Bar(mainCtrl.dataG);
+					}else{
+
+						document.getElementById("graphic").style.display = "none";
+						document.getElementById("table").style.display = "block";
+					}   
+	            })
+	            .error(function (err){
+	                mainCtrl.dataT=[];
+	                mainCtrl.dataG=[];
+	            });
 		};
 	});
 })();
