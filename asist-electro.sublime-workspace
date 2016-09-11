@@ -132,18 +132,34 @@
 	"buffers":
 	[
 		{
-			"file": "models/get_day_values.php",
+			"file": "models/get_day_values_photo.php",
 			"settings":
 			{
-				"buffer_size": 680,
+				"buffer_size": 722,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "models/get_user.php",
+			"file": "models/get_month_values_photo.php",
 			"settings":
 			{
-				"buffer_size": 574,
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controllers/main_controller.js",
+			"settings":
+			{
+				"buffer_size": 3559,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/main_view.html",
+			"settings":
+			{
+				"buffer_size": 5306,
 				"line_ending": "Unix"
 			}
 		}
@@ -213,19 +229,23 @@
 	"expanded_folders":
 	[
 		"/var/www/html/AsistElectro",
-		"/var/www/html/AsistElectro/controllers",
 		"/var/www/html/AsistElectro/cronjobs",
-		"/var/www/html/AsistElectro/database",
-		"/var/www/html/AsistElectro/models"
+		"/var/www/html/AsistElectro/models",
+		"/var/www/html/AsistElectro/styles",
+		"/var/www/html/AsistElectro/views"
 	],
 	"file_history":
 	[
-		"/var/www/html/AsistElectro/models/get_month_values.php",
+		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
+		"/var/www/html/AsistElectro/models/get_year_values_photo.php",
 		"/var/www/html/AsistElectro/controllers/data.js",
+		"/var/www/html/AsistElectro/database/script.sql",
+		"/var/www/html/AsistElectro/cronjobs/summary.js",
+		"/var/www/html/AsistElectro/controllers/login_controller.js",
+		"/var/www/html/AsistElectro/models/get_month_values.php",
 		"/var/www/html/AsistElectro/models/get_user.php",
 		"/var/www/html/AsistElectro/database/connection.php",
 		"/var/www/html/AsistElectro/cronjobs/photovoltaic.sh",
-		"/var/www/html/AsistElectro/cronjobs/summary.js",
 		"/var/www/html/AsistElectro/cronjobs/foto2.js",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_photovoltaic_system.php",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
@@ -239,9 +259,7 @@
 		"/var/www/html/AsistElectro/views/main_view.html",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
 		"/var/www/html/AsistElectro/index.html",
-		"/var/www/html/AsistElectro/controllers/login_controller.js",
 		"/var/www/html/AsistElectro/models/get_places.php",
-		"/var/www/html/AsistElectro/database/script.sql",
 		"/var/www/html/AsistElectro/controllers/app_controller.js",
 		"/var/www/html/AsistElectro/models/conectar_base_de_datos.php",
 		"/var/www/html/AsistElectro/models/obtener_lugares.php",
@@ -313,7 +331,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -327,6 +345,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dataG",
 			"thermal",
 			"{",
 			"required",
@@ -394,24 +413,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "models/get_day_values.php",
+					"file": "models/get_day_values_photo.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 680,
+						"buffer_size": 722,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								191,
-								191
+								299,
+								299
 							]
 						],
 						"settings":
@@ -423,16 +442,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "models/get_user.php",
+					"file": "models/get_month_values_photo.php",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 574,
+						"buffer_size": 154,
 						"regions":
 						{
 						},
@@ -445,7 +464,35 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "controllers/main_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3559,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -453,6 +500,35 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/main_view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3385,
+								3385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1757.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -543,7 +619,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 193.0,
+	"side_bar_width": 277.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

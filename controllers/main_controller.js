@@ -1,10 +1,24 @@
 (function(){
 	var app=angular.module("AppSysFotoTerm");
-	app.controller("MainController",function($http,$location){
+	app.controller("MainController",function($http,$location,$filter){
 		var mainCtrl=this;
 		mainCtrl.dataG = info.data;
 		mainCtrl.dataT = info.table;
 		console.log(mainCtrl.dataT);
+
+		mainCtrl.years=getYears();
+
+
+		//FUNCTION TO GET YEARS
+		function getYears(){
+			minYear=2016;
+			maxYear = new Date().getFullYear();
+			years=[];
+			for (i = minYear; i <= maxYear; i++) { 
+			    years.push(i);
+			}
+			return years;
+		};
 
 		//FUNCTION TO LOAD PLACES
 		mainCtrl.loadPlaces=function (){
@@ -40,29 +54,41 @@
 
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
 		mainCtrl.updateComboBoxDate=function (){
-			if(mainCtrl.periodSelected === "Día"){
-				document.getElementById("calendar").type="date";
-			} else if(mainCtrl.periodSelected === "Semana"){
-				document.getElementById("calendar").type="week";
-			} else if(mainCtrl.periodSelected === "Mes"){
-				document.getElementById("calendar").type="month";
-			} else if(mainCtrl.periodSelected === "Año"){
-				document.getElementById("calendar").type="month";
-			}
+			mainCtrl.daySelected=null;
+			mainCtrl.monthSelected=null;
+			mainCtrl.weekSelected=null;
+			mainCtrl.yearSelected=null;
 		};
 
 		//FUNCTION TO LOAD A GRAPHIC OR TABLE WITH DATA
 		mainCtrl.processQuery=function(){
 			document.getElementById("cNoResults").style.display = "none";
 	    	//document.getElementById("loader").style.display = "block";
+
+	    	startDate=getStartDate();
+	    	endDate=getEndDate();
+	    	place=mainCtrl.placeSelected.place;
+	    	column=getColumn();
+
+	    	alert(" Place:"+mainCtrl.placeSelected.place+
+	    		" System:"+mainCtrl.systemSelected+
+	    		" Data:"+mainCtrl.dataSelected+
+	    		" Period:"+mainCtrl.periodSelected+
+	    		" Date:"+mainCtrl.daySelected+
+	    		" Mode:"+mainCtrl.modeSelected
+	    		);
+	    	//" Date:"+($filter('date')(mainCtrl.dateSelected, 'dd-MM-yyyy HH:mm:ss'))+
+
 	    	var delay=0;
-	    	$http.get("./models/get_day_values.php?txtDay='2016-08-27 05:30:00'&txtDay2='2016-08-27 18:30:00'&txtSystem=sys_photovoltaic&txtPlace=2&txtElement=kw_produced")
+	    	//$http.get("./models/get_day_values_photo.php?txtDay='2016-08-27 05:30:00'&txtDay2='2016-08-27 18:30:00'&txtSystem=sys_photovoltaic&txtPlace=2&txtElement=kw_produced")
+	    	var request="./models/get_day_values_photo.php?txtDay='"+startDate+"'&txtDay2='"+endDate+"'&txtPlace='"+place+"'&txtElement="+column;
+	    	alert(request);
+	    	console.log(request);
+	    	$http.get(request)
 	            .success(function (data){
 	            	mainCtrl.dataT=data.lines
 	                mainCtrl.dataG.labels=data.lines;
 	                mainCtrl.dataG.datasets[0].data=data.values; 
-
-	                alert(mainCtrl.dataT);
 	                
 	                if(mainCtrl.modeSelected === "Gráfico"){
 						setTimeout(function() {
@@ -84,5 +110,36 @@
 	                mainCtrl.dataG=[];
 	            });
 		};
+
+		function getStartDate(){
+			if(mainCtrl.periodSelected === "Día"){
+				return ($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'))+" 00:00:01";
+			} else if(mainCtrl.periodSelected === "Semana"){
+				//document.getElementById("calendar").type="week";
+			} else if(mainCtrl.periodSelected === "Mes"){
+				//document.getElementById("calendar").type="month";
+			} else if(mainCtrl.periodSelected === "Año"){
+				//document.getElementById("calendar").type="month";
+			}
+		};
+
+		function getEndDate(){
+			if(mainCtrl.periodSelected === "Día"){
+				return ($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'))+" 23:59:59";
+			} else if(mainCtrl.periodSelected === "Semana"){
+				//document.getElementById("calendar").type="week";
+			} else if(mainCtrl.periodSelected === "Mes"){
+				//document.getElementById("calendar").type="month";
+			} else if(mainCtrl.periodSelected === "Año"){
+				//document.getElementById("calendar").type="month";
+			}
+		};
+
+		function getColumn(){
+			if (mainCtrl.dataSelected === "kwp"){
+				return "kw_produced";
+			}
+		};
+
 	});
 })();

@@ -58,8 +58,9 @@
 			<form 
 				id="mainForm"
 				name="mainForm"
-				ng-submit="mainForm.$valid && mainCtrl.processQuery()"
+				ng-submit="mainCtrl.processQuery()"
 				class=""
+				novalidate
 			>
 				<div class="form-group">
 					<div class="input-group">
@@ -92,6 +93,7 @@
 						<select
 							id="slct_data"
 							class="form-control"
+							ng-model="mainCtrl.dataSelected" 
 						>		
 						</select>
 					</div>
@@ -104,7 +106,8 @@
 							class="form-control"
 							ng-options="periods for periods in ['Día','Semana','Mes','Año']" 
 							ng-model="mainCtrl.periodSelected" 
-							ng-change="mainCtrl.updateComboBoxDate()" 
+							ng-change="mainCtrl.updateComboBoxDate()"
+							ng-init="mainCtrl.periodSelected ='Día'"
 						>
 						</select>
 					</div>
@@ -113,12 +116,35 @@
 					<div class="input-group">
 						<div class="input-group-addon">Fecha&nbsp;&nbsp;</div>
 						<input 
-							id="calendar"
-							name="name" 
 							type="date"
-							ng-model="mainCtrl.dateSelected"  
+							ng-model="mainCtrl.daySelected"  
 							class="form-control"
+
+							ng-if="mainCtrl.periodSelected==='Día'"
 						>
+						<input 
+							type="week"
+							ng-model="mainCtrl.weekSelected"  
+							class="form-control"
+
+							ng-if="mainCtrl.periodSelected==='Semana'"
+						>
+						<input 
+							type="month"
+							ng-model="mainCtrl.monthSelected"  
+							class="form-control"
+
+							ng-if="mainCtrl.periodSelected==='Mes'"
+						>
+						<select 
+							id="slct_year"
+							class="form-control"
+							ng-options="year for year in mainCtrl.years" 
+							ng-model="mainCtrl.yearSelected" 
+
+							ng-if="mainCtrl.periodSelected==='Año'"
+						>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
@@ -137,7 +163,7 @@
 					<input 
 		                type="submit"
 		                value="REALIZAR CONSULTA" 
-		                class="btn btn-default btn-success btn-block" ng-disabled="mainForm.$invalid"
+		                class="btn btn-default btn-success btn-block"
 		            /><!--ng-disabled="mainForm.$invalid"--> 
 				</div>
 			</form>

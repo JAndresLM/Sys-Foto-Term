@@ -5,9 +5,10 @@
 	$day2=$_GET["txtDay2"];
 	$place=$_GET["txtPlace"];
 	$element=$_GET["txtElement"];
-	$system=$_GET["txtSystem"];
 
-	$query = "select to_char(date_time, 'HH:MI'),$element from $system where place_id=$place and date_time between $day and $day2";
+	$query = "SELECT TO_CHAR(date_time, 'HH:MI'),$element FROM (Select * FROM sys_photovoltaic NATURAL JOIN places WHERE place_id=id_place) records WHERE place=$place AND date_time BETWEEN $day AND $day2";
+
+	//echo "HORROOOOOOR:".$query;
 	$result = pg_query($conn,$query) or die ("<strong>Error durante la consulta.</strong>" . pg_last_error());
 
 	$rows = pg_num_rows($result);
