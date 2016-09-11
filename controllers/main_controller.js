@@ -21,22 +21,7 @@
 
 		//FUNCTION TO UPDATE WHAT VALUES SHOW DEPEND OF THE SYSTEM SELECTED
 		mainCtrl.updateComboBoxData=function (){
-			var s1 = document.getElementById("slct_system");
-			var s2 = document.getElementById("slct_data");
-			s2.innerHTML = "";
-			if(mainCtrl.systemSelected === "Fotovoltaico"){
-				var optionArray = ["|","kwp|Kw Producidos","kwc|Kw Consumidos","kwd|Diferencia"];
-			} else if(mainCtrl.systemSelected === "Termico"){
-				var optionArray = ["|","ts1|Sensor 1","ts2|Sensor 2","ts3|Sensor 3"];
-			}
-			
-			for(var option in optionArray){
-				var pair = optionArray[option].split("|");
-				var newOption = document.createElement("option");
-				newOption.value = pair[0];
-				newOption.innerHTML = pair[1];
-				s2.options.add(newOption);
-			}
+			changeComboBoxValues(mainCtrl.systemSelected);
 		};
 
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
@@ -54,12 +39,6 @@
 
 	    	initList();
 
-	        //getParametersForRequest
-	    	startDate=getDates("start");
-	    	endDate=getDates("end");
-	    	place=mainCtrl.placeSelected.place;
-	    	column=getColumn(mainCtrl.dataSelected);
-
 	    	alert(" Place:"+mainCtrl.placeSelected.place+
 	    		" System:"+mainCtrl.systemSelected+
 	    		" Data:"+mainCtrl.dataSelected+
@@ -71,7 +50,8 @@
 
 	    	var delay=0;
 	    	//$http.get("./models/get_day_values_photo.php?txtDay='2016-08-27 05:30:00'&txtDay2='2016-08-27 18:30:00'&txtSystem=sys_photovoltaic&txtPlace=2&txtElement=kw_produced")
-	    	var request="./models/get_day_values_photo.php?txtDay='"+startDate+"'&txtDay2='"+endDate+"'&txtPlace='"+place+"'&txtElement="+column;
+	    	//var request="./models/get_day_values_photo.php?txtDay='"+startDate+"'&txtDay2='"+endDate+"'&txtPlace='"+place+"'&txtElement="+column;
+	    	var request=createAndGetRequest();
 	    	alert(request);
 	    	console.log(request);
 	    	$http.get(request)
@@ -100,6 +80,22 @@
 	            });
 		};
 
+
+		//FUNCTION TO CREATE A REQUEST
+		function createAndGetRequest(){
+			//getParametersForRequest
+	    	startDate=getDates("start");
+	    	endDate=getDates("end");
+	    	place=mainCtrl.placeSelected.place;
+	    	column=getColumn(mainCtrl.dataSelected);
+	    	filePHP=getFilePHP(mainCtrl.systemSelected,mainCtrl.periodSelected);
+
+			var request="./models/"+filePHP+".php?txtDay='"+startDate+"'&txtDay2='"+endDate+"'&txtPlace='"+place+"'&txtElement="+column;
+			return request;
+		};
+
+
+		//GET START AND END DATE
 		function getDates(typeDate){
 			initialDate=null;
 			if (mainCtrl.periodSelected==="Año"){
@@ -119,12 +115,12 @@
 			}
 		};
 
+		//SET LIST TO EMPTY
 		function initList(){
-			//set lists to empty
 	    	mainCtrl.dataG.labels=[];
 	        mainCtrl.dataG.datasets[0].data=[];
 	        mainCtrl.dataT = [];
-		}
+		};
 
 	});
 })();
