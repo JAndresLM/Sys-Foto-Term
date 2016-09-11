@@ -4,21 +4,8 @@
 		var mainCtrl=this;
 		mainCtrl.dataG = info.data;
 		mainCtrl.dataT = info.table;
-		console.log(mainCtrl.dataT);
-
 		mainCtrl.years=getYears();
 
-
-		//FUNCTION TO GET YEARS
-		function getYears(){
-			minYear=2016;
-			maxYear = new Date().getFullYear();
-			years=[];
-			for (i = minYear; i <= maxYear; i++) { 
-			    years.push(i);
-			}
-			return years;
-		};
 
 		//FUNCTION TO LOAD PLACES
 		mainCtrl.loadPlaces=function (){
@@ -65,10 +52,13 @@
 			document.getElementById("cNoResults").style.display = "none";
 	    	//document.getElementById("loader").style.display = "block";
 
-	    	startDate=getStartDate();
-	    	endDate=getEndDate();
+	    	initList();
+
+	        //getParametersForRequest
+	    	startDate=getDates("start");
+	    	endDate=getDates("end");
 	    	place=mainCtrl.placeSelected.place;
-	    	column=getColumn();
+	    	column=getColumn(mainCtrl.dataSelected);
 
 	    	alert(" Place:"+mainCtrl.placeSelected.place+
 	    		" System:"+mainCtrl.systemSelected+
@@ -106,40 +96,35 @@
 					}   
 	            })
 	            .error(function (err){
-	                mainCtrl.dataT=[];
-	                mainCtrl.dataG=[];
+	                initList();
 	            });
 		};
 
-		function getStartDate(){
-			if(mainCtrl.periodSelected === "Día"){
-				return ($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'))+" 00:00:01";
-			} else if(mainCtrl.periodSelected === "Semana"){
-				//document.getElementById("calendar").type="week";
-			} else if(mainCtrl.periodSelected === "Mes"){
-				//document.getElementById("calendar").type="month";
-			} else if(mainCtrl.periodSelected === "Año"){
-				//document.getElementById("calendar").type="month";
+		function getDates(typeDate){
+			initialDate=null;
+			if (mainCtrl.periodSelected==="Año"){
+				initialDate=mainCtrl.yearSelected;
+			}else if (mainCtrl.periodSelected==="Mes"){
+				initialDate=($filter('date')(mainCtrl.monthSelected, 'dd-MM-yyyy'));
+			}else if (mainCtrl.periodSelected==="Semana"){
+				initialDate=($filter('date')(mainCtrl.weekSelected, 'dd-MM-yyyy'));
+			}else if (mainCtrl.periodSelected==="Día"){
+				initialDate=($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'));
+			}
+
+			if (typeDate==="start"){
+				return getStartDate(mainCtrl.periodSelected,initialDate);
+			}else{
+				return getEndDate(mainCtrl.periodSelected,initialDate);
 			}
 		};
 
-		function getEndDate(){
-			if(mainCtrl.periodSelected === "Día"){
-				return ($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'))+" 23:59:59";
-			} else if(mainCtrl.periodSelected === "Semana"){
-				//document.getElementById("calendar").type="week";
-			} else if(mainCtrl.periodSelected === "Mes"){
-				//document.getElementById("calendar").type="month";
-			} else if(mainCtrl.periodSelected === "Año"){
-				//document.getElementById("calendar").type="month";
-			}
-		};
-
-		function getColumn(){
-			if (mainCtrl.dataSelected === "kwp"){
-				return "kw_produced";
-			}
-		};
+		function initList(){
+			//set lists to empty
+	    	mainCtrl.dataG.labels=[];
+	        mainCtrl.dataG.datasets[0].data=[];
+	        mainCtrl.dataT = [];
+		}
 
 	});
 })();
