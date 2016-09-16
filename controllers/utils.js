@@ -9,50 +9,25 @@ function getYears(){
 	return years;
 };
 
-//FUNCTION TO GET THE START DATE
-function getStartDate(period,date){
-	if(period === "Día"){
-		return date+" 00:00:01";
-	} else if(period === "Semana"){
-		day=Number(date.substr(0,1))-3;
-		dateString=String(date);
-		return day+dateString.substring(2);
-	} else if(period === "Mes"){
-		//document.getElementById("calendar").type="month";
-	} else if(period === "Año"){
-		//document.getElementById("calendar").type="month";
+function getDatesForWeek(date,typeDate){
+	if (typeDate==="start"){
+		return new Date(addDays(date,-3));
+	}else{
+		return new Date(addDays(date,3));
 	}
+}
+
+function getStartDayWithTime(date){
+	return date+" 00:00:01";
 };
 
-//FUNCTION TO GET THE END DATE
-function getEndDate(period,date){
-	alert("Fecha Get End Days"+date);
-	if(period === "Día"){
-		return date+" 23:59:59";
-	} else if(period === "Semana"){
-		//newDate=addDays(new Date(date),3);
-		newDate=addDays(date,3);
-		alert("New Date"+date);
-		//day=Number(date.substr(0,1))+3;
-		dateString=String(newDate);
-		return dateString.substring(0,10)+" 23:59:59";
-	} else if(period === "Mes"){
-		//document.getElementById("calendar").type="month";
-	} else if(period === "Año"){
-		//document.getElementById("calendar").type="month";
-	}
-};
-
-function getDayOfMonth(){
-
+function getEndDayWithTime(date){
+	return date+" 23:59:59";
 };
 
 function addDays(theDate, days) {
-	alert("Fecha Add Days:"+theDate);
     return (theDate.getTime() + days*24*60*60*1000);
 }
-
-var newDate = addDays(new Date(), 5);
 
 //FUNCTION TO GET THE COLUMN
 function getColumn(column){

@@ -84,20 +84,23 @@
 		//GET START AND END DATE
 		function getDates(typeDate){
 			initialDate=null;
+			//alert("Get Dates:::"+mainCtrl.weekSelected);
 			if (mainCtrl.periodSelected==="Año"){
 				initialDate=mainCtrl.yearSelected;
 			}else if (mainCtrl.periodSelected==="Mes"){
 				initialDate=($filter('date')(mainCtrl.monthSelected, 'dd-MM-yyyy'));
 			}else if (mainCtrl.periodSelected==="Semana"){
-				initialDate=($filter('date')(mainCtrl.weekSelected, 'dd-MM-yyyy'));
+				tempDate=getDatesForWeek(mainCtrl.weekSelected,typeDate);
+				initialDate=($filter('date')(tempDate, 'dd-MM-yyyy'));
+				console.log(initialDate);
 			}else if (mainCtrl.periodSelected==="Día"){
 				initialDate=($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'));
 			}
 
 			if (typeDate==="start"){
-				return getStartDate(mainCtrl.periodSelected,initialDate);
+				return getStartDayWithTime(initialDate);
 			}else{
-				return getEndDate(mainCtrl.periodSelected,initialDate);
+				return getEndDayWithTime(initialDate);
 			}
 		};
 
