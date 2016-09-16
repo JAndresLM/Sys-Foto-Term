@@ -39,20 +39,15 @@
 
 	    	initList();
 
-	    	alert(" Place:"+mainCtrl.placeSelected.place+
+	    	/*alert(" Place:"+mainCtrl.placeSelected.place+
 	    		" System:"+mainCtrl.systemSelected+
 	    		" Data:"+mainCtrl.dataSelected+
 	    		" Period:"+mainCtrl.periodSelected+
 	    		" Date:"+mainCtrl.daySelected+
 	    		" Mode:"+mainCtrl.modeSelected
-	    		);
-	    	//" Date:"+($filter('date')(mainCtrl.dateSelected, 'dd-MM-yyyy HH:mm:ss'))+
+	    		);*/
 
-	    	var delay=0;
-	    	//$http.get("./models/get_day_values_photo.php?txtDay='2016-08-27 05:30:00'&txtDay2='2016-08-27 18:30:00'&txtSystem=sys_photovoltaic&txtPlace=2&txtElement=kw_produced")
-	    	//var request="./models/get_day_values_photo.php?txtDay='"+startDate+"'&txtDay2='"+endDate+"'&txtPlace='"+place+"'&txtElement="+column;
 	    	var request=createAndGetRequest();
-	    	alert(request);
 	    	console.log(request);
 	    	$http.get(request)
 	            .success(function (data){
@@ -61,18 +56,9 @@
 	                mainCtrl.dataG.datasets[0].data=data.values; 
 	                
 	                if(mainCtrl.modeSelected === "Gráfico"){
-						setTimeout(function() {
-						 	document.getElementById("loader").style.display = "none";
-						 	document.getElementById("table").style.display = "none";
-				    		document.getElementById("graphic").style.display = "block";
-						}, delay);
-				    	
-						var ctx2 = document.getElementById("chart-bar").getContext("2d");
-						window.myBar = new Chart(ctx2).Bar(mainCtrl.dataG);
+						showGraphic(mainCtrl.dataG);
 					}else{
-
-						document.getElementById("graphic").style.display = "none";
-						document.getElementById("table").style.display = "block";
+						showTable();
 					}   
 	            })
 	            .error(function (err){
@@ -120,6 +106,7 @@
 	    	mainCtrl.dataG.labels=[];
 	        mainCtrl.dataG.datasets[0].data=[];
 	        mainCtrl.dataT = [];
+	        showGraphic(mainCtrl.dataG);
 		};
 
 	});

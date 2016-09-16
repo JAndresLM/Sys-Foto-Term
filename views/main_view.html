@@ -70,7 +70,6 @@
 							class="form-control"
 							ng-options="p.place for p in mainCtrl.places"
 							ng-model="mainCtrl.placeSelected"
-							required 
 						>
 						</select>
 					</div>
@@ -199,8 +198,8 @@
 			<div id="table" style="display:none;">
 				<table class="table table-bordered table-responsive">
 					<tr>
-						<td>Fecha</td>
-						<td>Valor</td>
+						<td><strong>Fecha</strong></td>
+						<td><strong>Valor</strong></td>
 					</tr>
 					<tr ng-repeat="v in mainCtrl.dataT">
 						<td>{{v}}</td>
