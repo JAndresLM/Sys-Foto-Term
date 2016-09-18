@@ -22,17 +22,26 @@ function changeComboBoxValues(system){
 function showGraphic(data){
 	var delay=0;
 	setTimeout(function() {
+		document.getElementById("cNoResults").style.display = "none";
 	 	document.getElementById("loader").style.display = "none";
 	 	document.getElementById("table").style.display = "none";
 		document.getElementById("graphic").style.display = "block";
 	}, delay);
-
-	var ctx2 = document.getElementById("chart-bar").getContext("2d");
-	window.myBar = new Chart(ctx2).Bar(data);
+	//myChart.data=data;
+	//myChart.update();
+	
 };
 
 //FUNCTION TO SHOW TABLE AND HIDE GRAPHIC
 function showTable(){
+	document.getElementById("cNoResults").style.display = "none";
 	document.getElementById("graphic").style.display = "none";
 	document.getElementById("table").style.display = "block";
+};
+
+//FUNCTION TO SHOW NO RESULT AND HIDE GRAPHIC
+function showNoResults(){
+	document.getElementById("graphic").style.display = "none";
+	document.getElementById("table").style.display = "none";
+	document.getElementById("cNoResults").style.display = "block";
 };

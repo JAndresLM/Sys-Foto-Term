@@ -55,6 +55,13 @@ li{
   overflow: scroll;
 }
 
+#panelGraphics .panel-body{
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
 #panelOptions{
   height: 400px;
 }
@@ -64,12 +71,10 @@ li{
 }
 
 #graphic{
+  padding-top: 20px;
+  width: 965px;
+  height: 470px;
   overflow: scroll;
-}
-
-#graphic #chart-bar{
-  width: 950px;
-  height: 425px;
 }
 
 /******************************** ANIMACION DEL LOADER ********************************************/
@@ -113,8 +118,8 @@ li{
     height: 400px;
   }
 
-  #graphic #chart-bar{
-    width: 800px;
-    height: 400px;
+  #graphic{
+  height: 390px;
+  width: 390px;
   }
 }

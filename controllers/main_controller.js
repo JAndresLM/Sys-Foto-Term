@@ -2,9 +2,11 @@
 	var app=angular.module("AppSysFotoTerm");
 	app.controller("MainController",function($http,$location,$filter){
 		var mainCtrl=this;
-		mainCtrl.dataG = info.data;
+		mainCtrl.dataG = chartConfiguration;
 		mainCtrl.dataT = info.table;
 		mainCtrl.years=getYears();
+		var ctx = document.getElementById("chart");
+		var myChart = new Chart(ctx, chartConfiguration);
 
 
 		//FUNCTION TO LOAD PLACES
@@ -34,9 +36,6 @@
 
 		//FUNCTION TO LOAD A GRAPHIC OR TABLE WITH DATA
 		mainCtrl.processQuery=function(){
-			document.getElementById("cNoResults").style.display = "none";
-	    	//document.getElementById("loader").style.display = "block";
-
 	    	initList();
 
 	    	/*alert(" Place:"+mainCtrl.placeSelected.place+
@@ -52,14 +51,19 @@
 	    	$http.get(request)
 	            .success(function (data){
 	            	mainCtrl.dataT=data.lines
-	                mainCtrl.dataG.labels=data.lines;
-	                mainCtrl.dataG.datasets[0].data=data.values; 
+	                mainCtrl.dataG.data.labels=data.lines;
+	                mainCtrl.dataG.data.datasets[0].data=data.values; 
+	                mainCtrl.dataG.data.datasets[0].label=mainCtrl.dataSelected;
 	                
-	                if(mainCtrl.modeSelected === "Gráfico"){
-						showGraphic(mainCtrl.dataG);
-					}else{
+	                if(mainCtrl.modeSelected === "Gráfico" && data.values!=null){
+	                	myChart.data=mainCtrl.dataG.data;
+						myChart.update();
+						showGraphic(mainCtrl.dataG.data);
+					}else if (mainCtrl.modeSelected === "Tabla" && data.values!=null){
 						showTable();
-					}   
+					} else{
+						showNoResults();
+					}  
 	            })
 	            .error(function (err){
 	                initList();
@@ -106,10 +110,9 @@
 
 		//SET LIST TO EMPTY
 		function initList(){
-	    	mainCtrl.dataG.labels=[];
-	        mainCtrl.dataG.datasets[0].data=[];
+	    	mainCtrl.dataG.data.labels=[];
+	        mainCtrl.dataG.data.datasets[0].data=[];
 	        mainCtrl.dataT = [];
-	        showGraphic(mainCtrl.dataG);
 		};
 
 	});
