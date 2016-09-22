@@ -28,7 +28,7 @@
 
 		//FUNCTION TO CHANGE GRAPHIC
 		mainCtrl.changView=function (){
-			
+
 		};
 
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
@@ -50,7 +50,7 @@
 	    		" Date:"+mainCtrl.daySelected+
 	    		" Mode:"+mainCtrl.modeSelected
 	    		);*/
-
+	    	console.log(mainCtrl.monthSelected);
 	    	var request=createAndGetRequest();
 	    	console.log(request);
 	    	$http.get(request)
@@ -95,13 +95,14 @@
 			initialDate=null;
 			//alert("Get Dates:::"+mainCtrl.weekSelected);
 			if (mainCtrl.periodSelected==="Año"){
-				initialDate=mainCtrl.yearSelected;
+				initialDate=getDatesForYear(mainCtrl.yearSelected,typeDate);
+				console.log(initialDate);
 			}else if (mainCtrl.periodSelected==="Mes"){
-				initialDate=($filter('date')(mainCtrl.monthSelected, 'dd-MM-yyyy'));
+				tempDate=getDatesForMonth(mainCtrl.monthSelected,typeDate);
+				initialDate=($filter('date')(tempDate, 'dd-MM-yyyy'));
 			}else if (mainCtrl.periodSelected==="Semana"){
 				tempDate=getDatesForWeek(mainCtrl.weekSelected,typeDate);
 				initialDate=($filter('date')(tempDate, 'dd-MM-yyyy'));
-				console.log(initialDate);
 			}else if (mainCtrl.periodSelected==="Día"){
 				initialDate=($filter('date')(mainCtrl.daySelected, 'dd-MM-yyyy'));
 			}

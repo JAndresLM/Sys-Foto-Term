@@ -15,7 +15,23 @@ function getDatesForWeek(date,typeDate){
 	}else{
 		return new Date(addDays(date,3));
 	}
-}
+};
+
+function getDatesForMonth(date,typeDate){
+	if (typeDate==="start"){
+		return date;
+	}else{
+		return new Date(date.getFullYear(), date.getMonth()+1, 0);
+	}
+};
+
+function getDatesForYear(year,typeDate){
+	if (typeDate==="start"){
+		return "01-01-"+year;
+	}else{
+		return "31-12-"+year;
+	}
+};
 
 function getStartDayWithTime(date){
 	return date+" 00:00:01";

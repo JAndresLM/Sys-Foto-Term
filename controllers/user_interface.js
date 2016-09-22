@@ -4,7 +4,7 @@ function changeComboBoxValues(system){
 	var s2 = document.getElementById("slct_data");
 	s2.innerHTML = "";
 	if(system === "Fotovoltaico"){
-		var optionArray = ["|","kwp|Kw Producidos","kwc|Kw Consumidos","kwd|Diferencia"];
+		var optionArray = ["|","kwp|Kw Producidos"];//,"kwc|Kw Consumidos","kwd|Diferencia"];
 	} else if(system === "Termico"){
 		var optionArray = ["|","ts1|Sensor 1","ts2|Sensor 2","ts3|Sensor 3"];
 	}
