@@ -26,6 +26,11 @@
 			changeComboBoxValues(mainCtrl.systemSelected);
 		};
 
+		//FUNCTION TO CHANGE GRAPHIC
+		mainCtrl.changView=function (){
+			
+		};
+
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
 		mainCtrl.updateComboBoxDate=function (){
 			mainCtrl.daySelected=null;
