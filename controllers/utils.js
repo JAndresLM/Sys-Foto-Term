@@ -86,3 +86,13 @@ function getFilePHP(system,period){
 		}
 	}
 };
+
+function getList(lines,values){
+	var list = [];
+	tam = lines.length;
+	for (i = 0; i < tam; i++) {
+		var element=[lines[i],values[i]];
+	    list.push(element);
+	}
+	return list;
+};

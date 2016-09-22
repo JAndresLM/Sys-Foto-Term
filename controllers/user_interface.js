@@ -19,16 +19,20 @@ function changeComboBoxValues(system){
 };
 
 //FUNCTION TO SHOW GRAPHIC AND HIDE TABLE
-function showGraphic(data){
+function showGraphic(){
 	var delay=0;
 	setTimeout(function() {
 		document.getElementById("cNoResults").style.display = "none";
 	 	document.getElementById("loader").style.display = "none";
 	 	document.getElementById("table").style.display = "none";
-		document.getElementById("graphic").style.display = "block";
+	 	if (info.chartDisplay==="bar"){
+			document.getElementById("graphic").style.display = "block";
+			document.getElementById("graphic2").style.display = "none";
+	 	}else{
+	 		document.getElementById("graphic").style.display = "none";
+			document.getElementById("graphic2").style.display = "block";
+	 	}
 	}, delay);
-	//myChart.data=data;
-	//myChart.update();
 	
 };
 
@@ -36,12 +40,14 @@ function showGraphic(data){
 function showTable(){
 	document.getElementById("cNoResults").style.display = "none";
 	document.getElementById("graphic").style.display = "none";
+	document.getElementById("graphic2").style.display = "none";
 	document.getElementById("table").style.display = "block";
 };
 
 //FUNCTION TO SHOW NO RESULT AND HIDE GRAPHIC
 function showNoResults(){
 	document.getElementById("graphic").style.display = "none";
+	document.getElementById("graphic2").style.display = "none";
 	document.getElementById("table").style.display = "none";
 	document.getElementById("cNoResults").style.display = "block";
 };

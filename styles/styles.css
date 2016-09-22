@@ -70,7 +70,7 @@ li{
   height: 110px;
 }
 
-#graphic{
+#graphic,#graphic2{
   padding-top: 20px;
   width: 965px;
   height: 470px;
@@ -118,7 +118,7 @@ li{
     height: 400px;
   }
 
-  #graphic{
+  #graphic,#graphic2{
   height: 390px;
   width: 390px;
   }

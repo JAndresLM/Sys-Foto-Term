@@ -7,7 +7,7 @@
         };
     })
 
-    app.controller("LoginController",function($http,$location){
+    app.controller("LoginController",function($http,$location,auth){
         var loginCtrl=this;
         loginCtrl.username="";
         loginCtrl.password="";
@@ -25,7 +25,8 @@
                     if(data[0].access==='accepted'){
                         loginCtrl.name=data[0].uName;
                         info.name=loginCtrl.name;
-                        $location.path("/home");
+                        auth.login(loginCtrl.name,loginCtrl.name);
+                        //$location.path("/home");
                     }else{
                         loginCtrl.message=" Los datos ingresados no coinciden. Por favor verifique sus credenciales.";
                         loginCtrl.show=true;
@@ -41,7 +42,8 @@
 
         //FUNCION DE LOGOUT 
         loginCtrl.closeSession=function (){
-            $location.path("/");
+            auth.logout(loginCtrl.name,loginCtrl.name);
+            //$location.path("/");
         };
     });
 })();	

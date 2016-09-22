@@ -1,12 +1,14 @@
 (function(){
 	var app=angular.module("AppSysFotoTerm");
-	app.controller("MainController",function($http,$location,$filter){
+	app.controller("MainController",function($http,$location,$filter,auth){
 		var mainCtrl=this;
-		mainCtrl.dataG = chartConfiguration;
-		mainCtrl.dataT = info.table;
+		mainCtrl.dataG = chartBarConfiguration;
+		mainCtrl.dataT = [];
 		mainCtrl.years=getYears();
-		var ctx = document.getElementById("chart");
-		var myChart = new Chart(ctx, chartConfiguration);
+		var ctx = document.getElementById("chartBar");
+		var ctx2 = document.getElementById("chartLine");
+		var myBarChart = new Chart(ctx, chartBarConfiguration);
+		var myLineChart = new Chart(ctx2, chartLineConfiguration);
 
 
 		//FUNCTION TO LOAD PLACES
@@ -28,7 +30,14 @@
 
 		//FUNCTION TO CHANGE GRAPHIC
 		mainCtrl.changView=function (){
-
+			if (info.chartDisplay==="bar"){
+				info.chartDisplay="line";
+			}else{
+				info.chartDisplay="bar";
+			}
+			if (mainCtrl.modeSelected!="Tabla"){
+				showGraphic();
+			}
 		};
 
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
@@ -42,28 +51,22 @@
 		//FUNCTION TO LOAD A GRAPHIC OR TABLE WITH DATA
 		mainCtrl.processQuery=function(){
 	    	initList();
-
-	    	/*alert(" Place:"+mainCtrl.placeSelected.place+
-	    		" System:"+mainCtrl.systemSelected+
-	    		" Data:"+mainCtrl.dataSelected+
-	    		" Period:"+mainCtrl.periodSelected+
-	    		" Date:"+mainCtrl.daySelected+
-	    		" Mode:"+mainCtrl.modeSelected
-	    		);*/
-	    	console.log(mainCtrl.monthSelected);
 	    	var request=createAndGetRequest();
 	    	console.log(request);
 	    	$http.get(request)
 	            .success(function (data){
-	            	mainCtrl.dataT=data.lines
+	            	mainCtrl.dataT=getList(data.lines,data.values);
+	            	console.log(mainCtrl.dataT);
 	                mainCtrl.dataG.data.labels=data.lines;
 	                mainCtrl.dataG.data.datasets[0].data=data.values; 
 	                mainCtrl.dataG.data.datasets[0].label=mainCtrl.dataSelected;
 	                
 	                if(mainCtrl.modeSelected === "Gráfico" && data.values!=null){
-	                	myChart.data=mainCtrl.dataG.data;
-						myChart.update();
-						showGraphic(mainCtrl.dataG.data);
+	                	myBarChart.data=mainCtrl.dataG.data;
+	                	myLineChart.data=mainCtrl.dataG.data;
+						myBarChart.update();
+						myLineChart.update();
+						showGraphic();
 					}else if (mainCtrl.modeSelected === "Tabla" && data.values!=null){
 						showTable();
 					} else{
@@ -93,10 +96,8 @@
 		//GET START AND END DATE
 		function getDates(typeDate){
 			initialDate=null;
-			//alert("Get Dates:::"+mainCtrl.weekSelected);
 			if (mainCtrl.periodSelected==="Año"){
 				initialDate=getDatesForYear(mainCtrl.yearSelected,typeDate);
-				console.log(initialDate);
 			}else if (mainCtrl.periodSelected==="Mes"){
 				tempDate=getDatesForMonth(mainCtrl.monthSelected,typeDate);
 				initialDate=($filter('date')(tempDate, 'dd-MM-yyyy'));
