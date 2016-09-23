@@ -52,18 +52,19 @@
 		mainCtrl.processQuery=function(){
 	    	initList();
 	    	var request=createAndGetRequest();
-	    	console.log(request);
+	    	//console.log(request);
 	    	$http.get(request)
 	            .success(function (data){
 	            	mainCtrl.dataT=getList(data.lines,data.values);
-	            	console.log(mainCtrl.dataT);
 	                mainCtrl.dataG.data.labels=data.lines;
 	                mainCtrl.dataG.data.datasets[0].data=data.values; 
 	                mainCtrl.dataG.data.datasets[0].label=mainCtrl.dataSelected;
 	                
 	                if(mainCtrl.modeSelected === "Gráfico" && data.values!=null){
 	                	myBarChart.data=mainCtrl.dataG.data;
-	                	myLineChart.data=mainCtrl.dataG.data;
+	                	myLineChart.data.labels=data.lines;
+	                	myLineChart.data.datasets[0].data=data.values;
+	                	myLineChart.data.datasets[0].label=mainCtrl.dataSelected;
 						myBarChart.update();
 						myLineChart.update();
 						showGraphic();

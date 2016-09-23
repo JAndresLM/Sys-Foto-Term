@@ -6,9 +6,10 @@
 	$place=$_GET["txtPlace"];
 	$element=$_GET["txtElement"];
 
-	$query = "SELECT TO_CHAR(date(date_time),'day') \"fecha\", TRUNC(AVG ($element),2) \"prom\" 
+	$query = "SELECT TO_CHAR(date(date_time),'day') \"fecha\", TRUNC(AVG ($element),2) \"prom\",date(date_time) \"dayValue\" 
 		FROM (SELECT * FROM sys_thermal  NATURAL JOIN places WHERE place_id=id_place) records 
-		WHERE place=$place AND date_time BETWEEN $day  AND $day2 GROUP BY fecha ORDER BY fecha";
+		WHERE place=$place AND date_time BETWEEN $day  AND $day2 
+		GROUP BY fecha,\"dayValue\" ORDER BY \"dayValue\"";
 
 	//echo "HORROOOOOOR:".$query;
 	$result = pg_query($conn,$query) or die ("<strong>Error durante la consulta.</strong>" . pg_last_error());

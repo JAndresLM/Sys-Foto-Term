@@ -77,6 +77,12 @@ li{
   overflow: scroll;
 }
 
+#table{
+  padding-top: 20px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom: 20px; 
+}
 /******************************** ANIMACION DEL LOADER ********************************************/
 #loader {
   margin-top: 30px;
@@ -116,10 +122,5 @@ li{
 
   #panelGraphics{
     height: 400px;
-  }
-
-  #graphic,#graphic2{
-  height: 390px;
-  width: 390px;
   }
 }

@@ -40,7 +40,7 @@ var chartLineConfiguration={
         datasets: [{
             label: '',
             data: [0],
-            backgroundColor:"rgba(51, 122, 183, 0.5)",
+            backgroundColor:"rgba(51, 122, 183, 0.8)",
             borderColor:"rgba(51, 122, 183, 1)",
             hoverBackgroundColor:"rgba(68, 157, 68, 1)",
             hoverBorderColor:"rgba(68, 157, 68, 1)",

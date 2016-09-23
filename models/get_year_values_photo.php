@@ -6,9 +6,10 @@
 	$place=$_GET["txtPlace"];
 	$element=$_GET["txtElement"];
 
-	$query = "SELECT TO_CHAR(date(date_time),'month') \"fecha\", TRUNC(SUM ($element),2) \"suma\" 
+	$query = "SELECT TO_CHAR(date(date_time),'month') \"fecha\", TRUNC(SUM ($element),2) \"suma\",date_part('month',date_time) \"monthName\" 
 		FROM (SELECT * FROM sys_photovoltaic  NATURAL JOIN places WHERE place_id=id_place) records 
-		WHERE place=$place AND date_time BETWEEN $day  AND $day2 GROUP BY fecha ORDER BY fecha";
+		WHERE place=$place AND date_time BETWEEN $day  AND $day2 
+		GROUP BY fecha,\"monthName\" ORDER BY \"monthName\"";
 
 	//echo "HORROOOOOOR:".$query;
 	$result = pg_query($conn,$query) or die ("<strong>Error durante la consulta.</strong>" . pg_last_error());
