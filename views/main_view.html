@@ -18,12 +18,43 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand">
-				<strong>SYS-FOTO-TERM</strong>
+				<strong>SYS-FOTO-TERMM</strong>
 			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<form class="navbar-form navbar-left">
+	        	<div class="form-group">
+	          		<input 
+	          			type="text" 
+	          			class="form-control" 
+	          			placeholder="Contraseña" 
+	          			ng-model="loginCtrl.adminPass">
+	        	</div>
+	      	</form>
+			<ul class="nav navbar-nav">
+	        	<li><a>Usuarios</a></li>
+	        	<li><a>Lugares</a></li>
+	        	<li class="dropdown">
+	          		<a
+	          			class="dropdown-toggle" 
+	          			data-toggle="dropdown" 
+	          			role="button" 
+	          			aria-haspopup="true" 
+	          			aria-expanded="false"
+	          		>
+	          			Sistemas<span class="caret"></span>
+	          		</a>
+	          		<ul class="dropdown-menu">
+	            		<li><a>Termico</a></li>
+	            		<li 
+	            			ng-click="loginCtrl.showSystemPhotovoltaic()"><!--loginCtrl.adminPass==='' &&-->
+	            			<a>Fotovoltaico</a>
+	            		</li>
+	          		</ul>
+	        	</li>
+	      	</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a 
@@ -213,3 +244,5 @@
 		</div>
 	</div>
 </div>
+
+<div ng-include="'views/modal_system_photovoltaic.html'"></div>
