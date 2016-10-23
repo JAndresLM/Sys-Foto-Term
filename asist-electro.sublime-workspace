@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"my",
+				"myLineChart"
+			],
+			[
+				"m",
+				"myBarChart"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
 				"da",
 				"dataT"
 			],
@@ -18,10 +30,6 @@
 			[
 				"lo",
 				"log"
-			],
-			[
-				"pa",
-				"padding-top"
 			],
 			[
 				"pad",
@@ -160,10 +168,6 @@
 				"num_muestras"
 			],
 			[
-				"m",
-				"muestras_ids"
-			],
-			[
 				"st",
 				"student"
 			],
@@ -200,10 +204,10 @@
 			}
 		},
 		{
-			"file": "controllers/utils.js",
+			"file": "controllers/user_interface.js",
 			"settings":
 			{
-				"buffer_size": 2071,
+				"buffer_size": 1927,
 				"line_ending": "Unix"
 			}
 		},
@@ -211,31 +215,15 @@
 			"file": "controllers/main_controller.js",
 			"settings":
 			{
-				"buffer_size": 3955,
+				"buffer_size": 4053,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "views/main_view.html",
+			"file": "cronjobs/insert_in_photovoltaic_system.php",
 			"settings":
 			{
-				"buffer_size": 6055,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/app_controller.js",
-			"settings":
-			{
-				"buffer_size": 2321,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/login_controller.js",
-			"settings":
-			{
-				"buffer_size": 1787,
+				"buffer_size": 1605,
 				"line_ending": "Unix"
 			}
 		}
@@ -306,25 +294,28 @@
 	[
 		"/var/www/html/AsistElectro",
 		"/var/www/html/AsistElectro/controllers",
+		"/var/www/html/AsistElectro/cronjobs",
+		"/var/www/html/AsistElectro/database",
 		"/var/www/html/AsistElectro/styles",
 		"/var/www/html/AsistElectro/views"
 	],
 	"file_history":
 	[
+		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
+		"/var/www/html/AsistElectro/models/get_week_values_term.php",
+		"/var/www/html/AsistElectro/models/get_year_values_photo.php",
+		"/var/www/html/AsistElectro/models/get_year_values_term.php",
+		"/var/www/html/AsistElectro/models/get_month_values_term.php",
+		"/var/www/html/AsistElectro/controllers/utils.js",
+		"/var/www/html/AsistElectro/controllers/app_controller.js",
+		"/var/www/html/AsistElectro/styles/styles.css",
+		"/var/www/html/AsistElectro/views/main_view.html",
 		"/var/www/html/AsistElectro/controllers/login_controller.js",
 		"/var/www/html/AsistElectro/index.html",
 		"/home/alopez/Descargas/angular-cookies.js",
 		"/var/www/html/AsistElectro/controllers/user_interface.js",
-		"/var/www/html/AsistElectro/controllers/utils.js",
-		"/var/www/html/AsistElectro/styles/styles.css",
-		"/var/www/html/AsistElectro/models/get_year_values_term.php",
-		"/var/www/html/AsistElectro/views/main_view.html",
 		"/var/www/html/AsistElectro/models/get_month_values_photo.php",
-		"/var/www/html/AsistElectro/models/get_month_values_term.php",
-		"/var/www/html/AsistElectro/models/get_year_values_photo.php",
 		"/var/www/html/AsistElectro/models/get_day_values_term.php",
-		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
-		"/var/www/html/AsistElectro/models/get_week_values_term.php",
 		"/var/www/html/AsistElectro/controllers/main_controller.js",
 		"/var/www/html/AsistElectro/content/js/angular.min.js",
 		"/var/www/html/AsistElectro/controllers/data.js",
@@ -345,7 +336,6 @@
 		"/home/alopez/Descargas/live.txt",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
 		"/var/www/html/AsistElectro/models/get_places.php",
-		"/var/www/html/AsistElectro/controllers/app_controller.js",
 		"/var/www/html/AsistElectro/models/conectar_base_de_datos.php",
 		"/var/www/html/AsistElectro/models/obtener_lugares.php",
 		"/var/www/html/AsistElectro/models/validar_login.php",
@@ -430,6 +420,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"myLineChart",
+			"myBarChart",
+			"myLineChart",
 			"mainCtrl.dataT",
 			"mainCtrl",
 			"mainCtrl.dataT",
@@ -515,7 +508,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -531,8 +524,8 @@
 						"selection":
 						[
 							[
-								42,
-								42
+								911,
+								911
 							]
 						],
 						"settings":
@@ -541,28 +534,28 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "controllers/utils.js",
+					"file": "controllers/user_interface.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2071,
+						"buffer_size": 1927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2054,
-								2054
+								1209,
+								1209
 							]
 						],
 						"settings":
@@ -570,11 +563,11 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 1186.0,
+						"translation.x": -0.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -583,15 +576,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3955,
+						"buffer_size": 4053,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1781,
-								1781
+								1593,
+								1593
 							]
 						],
 						"settings":
@@ -600,77 +593,19 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 969.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "views/main_view.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6055,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5989,
-								5989
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3129.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "controllers/app_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2321,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1094,
-								1094
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 258.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "controllers/login_controller.js",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "cronjobs/insert_in_photovoltaic_system.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1787,
+						"buffer_size": 1605,
 						"regions":
 						{
 						},
@@ -683,12 +618,11 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 619.0,
+						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
