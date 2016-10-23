@@ -13,6 +13,28 @@
 	    	<div class="modal-body" style="font-size:16px;">
 	          	<div class="row">
 		          	<ul class="list-group">
+		          		<li>
+		          			<div class="row text-center" >
+		          				<div class="col-md-2">
+		          					<strong>Descripción</strong>
+		          				</div>
+		          				<div class="col-md-2">
+		          					<strong>Número</strong>
+		          				</div>
+		          				<div class="col-md-2">
+		          					<strong>Lugar</strong>
+		          				</div>
+		          				<div class="col-md-2">
+		          					<strong>Id de Usuario</strong>
+		          				</div>
+		          				<div class="col-md-2">
+		          					<strong>Key</strong>
+		          				</div>
+		          				<div class="col-md-2">
+		          					<strong>Acciones</strong>
+		          				</div>
+		          			</div>
+		          		</li>
 		          		<li class="list-group-item" ng-repeat="sys in sysPhotoCtrl.photoSystems track by $index">
 		          			<div class="row">
 		          				<div class="col-md-2">
@@ -32,13 +54,18 @@
 			          					ng-disabled="sys.disabled">
 		          				</div>
 		          				<div class="col-md-2">
-		          					<select 
-										id="slct_place" 
+									<select 
+										ng-model="sys.place" 
 										class="form-control"
-										ng-options="p.place for p in sysPhotoCtrl.places"
-										ng-model="sys.place"
-									>
-									</select>
+										ng-disabled="sys.disabled">
+								        <option 
+								        	ng-repeat="p in sysPhotoCtrl.places" 
+								        	value="{p.id}}"
+								        	ng-selected="sys.place==p.id"
+								        	>
+								        	{{p.place}}
+								        </option>
+							      	</select>
 		          				</div>
 		          				<div class="col-md-2">
 		          					<input 
@@ -62,20 +89,47 @@
 			          						type="button" 
 			          						class="btn btn-warning" 
 			          						aria-label="Left Align"
-			          						ng-click="sysPhotoCtrl.editSystem(sys)">
+			          						ng-show="sys.disabled"
+			          						ng-disabled="sys.disabled && sysPhotoCtrl.action!=''"
+			          						ng-click="sys.disabled=sysPhotoCtrl.startAction('edit')">
 										  	<span 
 										  		class="glyphicon glyphicon-pencil" 
-										  		aria-hidden="true"> 
+										  		aria-hidden="true">E
 										  	</span>
 										</button>
 										<button 
 											type="button" 
 											class="btn btn-danger" 
 											aria-label="Left Align"
-											ng-click="sys.disabled=true">
+											ng-show="sys.disabled"
+											ng-disabled="sys.disabled && sysPhotoCtrl.action!=''"
+											ng-click="sys.disabled=sysPhotoCtrl.startAction('remove')">
 										  	<span 
 										  		class="glyphicon glyphicon-erase" 
-										  		aria-hidden="true"> 
+										  		aria-hidden="true">B
+										  	</span>
+										</button>
+										<!-- confirm buttons-->
+										<button 
+			          						type="button" 
+			          						class="btn btn-success" 
+			          						aria-label="Left Align"
+			          						ng-show="!sys.disabled"
+			          						ng-click="sysPhotoCtrl.confirmAction(sysPhotoCtrl.action,sys)">
+										  	<span 
+										  		class="glyphicon glyphicon-ok" 
+										  		aria-hidden="true">A
+										  	</span>
+										</button>
+										<button 
+			          						type="button" 
+			          						class="btn btn-danger" 
+			          						aria-label="Left Align"
+			          						ng-show="!sys.disabled"
+			          						ng-click="sys.disabled=sysPhotoCtrl.cancel()">
+										  	<span 
+										  		class="glyphicon glyphicon-remove" 
+										  		aria-hidden="true">C
 										  	</span>
 										</button>
 									</div>
@@ -91,7 +145,8 @@
           				<input 
           					type="text" 
           					class="form-control" 
-          					placeholder="Descripción" 
+          					placeholder="Descripción"
+          					ng-disabled="sysPhotoCtrl.action!=''"
           					ng-model="sysPhotoCtrl.description">
       				</div>
       				<div class="col-md-2">
@@ -99,12 +154,14 @@
       						type="text" 
       						class="form-control" 
       						placeholder="Número"
+      						ng-disabled="sysPhotoCtrl.action!=''"
       						ng-model="sysPhotoCtrl.number">
       				</div>
       				<div class="col-md-2">
       					<select 
 							id="slct_place" 
 							class="form-control"
+							ng-disabled="sysPhotoCtrl.action!=''"
 							ng-options="p.place for p in sysPhotoCtrl.places track by p.id"
 							ng-model="sysPhotoCtrl.place"
 						>
@@ -115,6 +172,7 @@
       						type="text" 
       						class="form-control" 
       						placeholder="Id de Usuario"
+      						ng-disabled="sysPhotoCtrl.action!=''"
       						ng-model="sysPhotoCtrl.user">
       				</div>
       				<div class="col-md-2">
@@ -122,13 +180,15 @@
       						type="text" 
       						class="form-control" 
       						placeholder="Key"
+      						ng-disabled="sysPhotoCtrl.action!=''"
       						ng-model="sysPhotoCtrl.key">
       				</div>
       				<div class="col-md-2">
       					<button 
       						type="button" 
       						class="btn btn-success" 
-      						aria-label="Left Align" 
+      						aria-label="Left Align"
+      						ng-disabled="sysPhotoCtrl.action!=''"
       						ng-click="sysPhotoCtrl.insertSystem()">
 						  	<span 
 						  		class="glyphicon glyphicon-save" 

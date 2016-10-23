@@ -4,11 +4,12 @@
     app.controller("SysPhotoController",function($http){
         var sysPhotoCtrl=this;
 
+        sysPhotoCtrl.action="";
         //FUNCTION TO LOAD SYSTEMS
 		sysPhotoCtrl.loadPhotoSystems=function (){
 			$http.get("./models/get_photo_systems.php?")
 	            .success(function (data){
-	                sysPhotoCtrl.photoSystems=data;      
+	                sysPhotoCtrl.photoSystems=data;  
 	            })
 	            .error(function (err){
 	                sysPhotoCtrl.photoSystems=[];
@@ -20,7 +21,7 @@
 		sysPhotoCtrl.loadPlaces=function (){
 			$http.get("./models/get_places.php?")
 	            .success(function (data){
-	                sysPhotoCtrl.places=data;      
+	                sysPhotoCtrl.places=data;     
 	            })
 	            .error(function (err){
 	                sysPhotoCtrl.places=[];
@@ -34,7 +35,12 @@
 			console.log(request);
 			$http.get(request)
 	            .success(function (data){
-	                sysPhotoCtrl.loadPhotoSystems();      
+	                sysPhotoCtrl.loadPhotoSystems();
+	                sysPhotoCtrl.description="";
+	                sysPhotoCtrl.number="";
+	                sysPhotoCtrl.place={};
+	                sysPhotoCtrl.user="";
+	                sysPhotoCtrl.key="";     
 	            })
 	            .error(function (err){
 	                alert("Error");
@@ -42,9 +48,24 @@
 		};
 
 		//FUNCTION TO EDIT SYSTEMS
-		sysPhotoCtrl.editSystem=function (sysPhoto){
+		sysPhotoCtrl.confirmAction=function (action,sysPhoto){
 			console.log(sysPhoto);
+			sysPhotoCtrl.loadPhotoSystems();
+			sysPhotoCtrl.action="";
+			return true;
+		};
 
+		//FUNCTION TO EDIT SYSTEMS
+		sysPhotoCtrl.cancel=function (){
+	        sysPhotoCtrl.loadPhotoSystems();
+	        sysPhotoCtrl.action="";
+			return true;
+		};
+
+		//FUNCTION TO EDIT SYSTEMS
+		sysPhotoCtrl.startAction=function (action){
+	        sysPhotoCtrl.action=action;
+			return false;
 		};
        
     });
