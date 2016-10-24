@@ -50,7 +50,27 @@
 		//FUNCTION TO EDIT SYSTEMS
 		sysPhotoCtrl.confirmAction=function (action,sysPhoto){
 			console.log(sysPhoto);
-			sysPhotoCtrl.loadPhotoSystems();
+			if (action==='remove'){
+				$http.get("./models/remove_photo_system.php?id="+sysPhoto.id)
+		            .success(function (data){
+		            	sysPhotoCtrl.loadPhotoSystems();
+		            })
+		            .error(function (err){
+		                alert("No se pudo eliminar");
+		            });
+			}
+
+			if (action==='edit'){
+				var request="./models/edit_photo_system.php?id="+sysPhoto.id+"&description="+sysPhoto.description+"&number="+sysPhoto.number+"&place="+sysPhoto.place+"&user="+sysPhoto.user+"&key="+sysPhoto.key;
+				$http.get(request)
+		            .success(function (data){
+		            	sysPhotoCtrl.loadPhotoSystems();
+		            })
+		            .error(function (err){
+		                alert("No se pudo editar");
+		            });
+			}
+
 			sysPhotoCtrl.action="";
 			return true;
 		};

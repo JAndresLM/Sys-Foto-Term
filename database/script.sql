@@ -11,7 +11,7 @@ CREATE TABLE users(
 
 --DROP TABLE places;
 CREATE TABLE places(
-   id_place	INT,
+   id_place	SERIAL,
    place	VARCHAR(100)	NOT NULL UNIQUE,
    PRIMARY KEY(id_place)
 );
