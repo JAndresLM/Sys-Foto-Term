@@ -6,7 +6,7 @@
 	$place=$_GET["txtPlace"];
 	$element=$_GET["txtElement"];
 
-	$query = "SELECT TO_CHAR(date_time, 'HH:MI'),$element FROM (Select * FROM sys_thermal NATURAL JOIN places WHERE place_id=id_place) records WHERE place=$place AND date_time BETWEEN $day AND $day2";
+	$query = "SELECT TO_CHAR(date_time, 'HH24:MI'),$element FROM (Select * FROM sys_thermal NATURAL JOIN places WHERE place_id=id_place) records WHERE place=$place AND date_time BETWEEN $day AND $day2";
 
 	//echo "HORROOOOOOR:".$query;
 	$result = pg_query($conn,$query) or die ("<strong>Error durante la consulta.</strong>" . pg_last_error());

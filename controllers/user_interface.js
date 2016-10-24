@@ -24,24 +24,21 @@ function showGraphic(){
 	setTimeout(function() {
 		document.getElementById("cNoResults").style.display = "none";
 	 	document.getElementById("loader").style.display = "none";
-	 	document.getElementById("table").style.display = "none";
-	 	if (info.chartDisplay==="bar"){
+	 	if (info.chartDisplay==="barChart"){
+	 		document.getElementById("table").style.display = "none";
+	 		document.getElementById("graphic2").style.display = "none";
 			document.getElementById("graphic").style.display = "block";
-			document.getElementById("graphic2").style.display = "none";
-	 	}else{
+	 	}else if (info.chartDisplay==="barLine"){
+	 		document.getElementById("table").style.display = "none";
 	 		document.getElementById("graphic").style.display = "none";
 			document.getElementById("graphic2").style.display = "block";
+	 	}else if (info.chartDisplay==="table"){
+	 		document.getElementById("graphic").style.display = "none";
+			document.getElementById("graphic2").style.display = "none";
+			document.getElementById("table").style.display = "block";
 	 	}
 	}, delay);
 	
-};
-
-//FUNCTION TO SHOW TABLE AND HIDE GRAPHIC
-function showTable(){
-	document.getElementById("cNoResults").style.display = "none";
-	document.getElementById("graphic").style.display = "none";
-	document.getElementById("graphic2").style.display = "none";
-	document.getElementById("table").style.display = "block";
 };
 
 //FUNCTION TO SHOW NO RESULT AND HIDE GRAPHIC

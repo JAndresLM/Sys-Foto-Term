@@ -2,11 +2,18 @@
 	var app=angular.module("AppSysFotoTerm");
 	app.controller("MainController",function($http,$location,$filter,auth){
 		var mainCtrl=this;
+
 		mainCtrl.dataG = chartBarConfiguration;
 		mainCtrl.dataT = [];
+
+		mainCtrl.modeSelected="barChart";
+		info.chartDisplay="barChart";
+
 		mainCtrl.years=getYears();
+
 		var ctx = document.getElementById("chartBar");
 		var ctx2 = document.getElementById("chartLine");
+		
 		var myBarChart = new Chart(ctx, chartBarConfiguration);
 		var myLineChart = new Chart(ctx2, chartLineConfiguration);
 
@@ -29,15 +36,10 @@
 		};
 
 		//FUNCTION TO CHANGE GRAPHIC
-		mainCtrl.changView=function (){
-			if (info.chartDisplay==="bar"){
-				info.chartDisplay="line";
-			}else{
-				info.chartDisplay="bar";
-			}
-			if (mainCtrl.modeSelected!="Tabla"){
-				showGraphic();
-			}
+		mainCtrl.changView=function (modeView){
+			mainCtrl.modeSelected=modeView;
+			info.chartDisplay=modeView;
+			showGraphic();
 		};
 
 		//FUNCTION TO UPDATE THE COMBOBOX WITH DIFFERENT TYPE OF DATE
@@ -60,7 +62,7 @@
 	                mainCtrl.dataG.data.datasets[0].data=data.values; 
 	                mainCtrl.dataG.data.datasets[0].label=mainCtrl.dataSelected;
 	                
-	                if(mainCtrl.modeSelected === "Gráfico" && data.values!=null){
+	                if(data.values!=null){
 	                	myBarChart.data=mainCtrl.dataG.data;
 	                	myLineChart.data.labels=data.lines;
 	                	myLineChart.data.datasets[0].data=data.values;
@@ -68,9 +70,7 @@
 						myBarChart.update();
 						myLineChart.update();
 						showGraphic();
-					}else if (mainCtrl.modeSelected === "Tabla" && data.values!=null){
-						showTable();
-					} else{
+					}else{
 						showNoResults();
 					}  
 	            })

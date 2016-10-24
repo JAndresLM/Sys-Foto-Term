@@ -60,16 +60,10 @@ CREATE TABLE sys_thermal_config(
    PRIMARY KEY(id_sys_term_config)
 );
 
-INSERT INTO users(usern,passw,fullname) VALUES ('alopez','AndresLM123','Andrés López M'),
-							('gcastro','GuilleCast','Guillermo Castro'),
-							('tguzman','TomGuzm','Tomas Gúzman');
+INSERT INTO users(usern,passw,fullname) VALUES 
+   ('alopez','AndresLM123','Andrés López M'),
+	('gcastro','GuilleCast','Guillermo Castro'),
+	('tguzman','TomGuzm','Tomas Gúzman');
+   ('admin','adminPass2016','Administrador');
 
-INSERT INTO places(id_place,place) VALUES (1,'Lecheria'),
-						  (2,'C-Tec'),
-						  (3,'San Bosco'),
-                    (4,'Allafark');
-SELECT * FROM users; 
-SELECT * FROM places; 
-SELECT * FROM sys_photovoltaic;
-SELECT * FROM sys_thermal;  
-SELECT CURRENT_TIME;		
+INSERT INTO places(id_place,place) VALUES ('Lecheria'),('C-Tec'),('San Bosco'),('llafrak');

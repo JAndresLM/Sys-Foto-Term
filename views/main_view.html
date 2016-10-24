@@ -150,21 +150,18 @@
 							type="date"
 							ng-model="mainCtrl.daySelected"  
 							class="form-control"
-
 							ng-if="mainCtrl.periodSelected==='Día'"
 						>
 						<input 
 							type="week"
 							ng-model="mainCtrl.weekSelected"  
 							class="form-control"
-
 							ng-if="mainCtrl.periodSelected==='Semana'"
 						>
 						<input 
 							type="month"
 							ng-model="mainCtrl.monthSelected"  
 							class="form-control"
-
 							ng-if="mainCtrl.periodSelected==='Mes'"
 						>
 						<select 
@@ -172,20 +169,7 @@
 							class="form-control"
 							ng-options="year for year in mainCtrl.years" 
 							ng-model="mainCtrl.yearSelected" 
-
 							ng-if="mainCtrl.periodSelected==='Año'"
-						>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon">Modo&nbsp;&nbsp;&nbsp;</div>
-						<select 
-							id="slct_mode"
-							class="form-control"
-							ng-options="modes for modes in ['Gráfico','Tabla']" 
-							ng-model="mainCtrl.modeSelected"
 						>
 						</select>
 					</div>
@@ -203,11 +187,33 @@
 
 	<div id="panelReports" class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title text-center">REPORTES</h3>
+			<h3 class="panel-title text-center">VISUALIZACIÓN</h3>
 		</div>
 		<div class="panel-body">
 			<div class="form-group">
-				<button class="btn btn-success btn-block" ng-click="mainCtrl.changView()">CAMBIAR VISTA</button>
+			 	<button 
+				  	class="btn btn-default btn-block text-left"
+				  	ng-click="mainCtrl.changView('barChart')" 
+				  	ng-class="{'active':mainCtrl.modeSelected==='barChart'}">
+				  	<span class="glyphicon glyphicon-stats text-left"></span>
+				  	&nbsp; Ver Gráfico de Barras
+			  	</button>
+			  	<button 
+			  		class="btn btn-default btn-block text-left" 
+			  		ng-click="mainCtrl.changView('barLine')"
+			  		ng-class="{'active':mainCtrl.modeSelected==='barLine'}">
+			  		<span class="glyphicon glyphicon-random text-left"></span>
+			  		&nbsp; Ver Gráfico Linear&nbsp;&nbsp;&nbsp;&nbsp;
+			  	</button>
+			  	</button>
+			  	<button 
+			  		class="btn btn-default btn-block text-left" 
+			  		ng-click="mainCtrl.changView('table')"
+			  		ng-class="{'active':mainCtrl.modeSelected==='table'}">
+			  		<span class="glyphicon glyphicon-th text-left"></span>
+			  		&nbsp; Ver en modo tabla&nbsp;&nbsp;&nbsp;&nbsp;
+			  	</button>
+			  	</button>
 			</div>
 		</div>
 	</div>
@@ -220,7 +226,7 @@
 		</div>
 		<div class="panel-body">
 			<div id="cNoResults">
-				<img src="images/sin_resultados.jpg" class="img-responsive center-block" alt="No hay resultados">
+				<img src="images/no_results.png" class="img-responsive center-block" alt="No hay resultados">
 			</div>
 			<div id="loader" style="display:none;"></div>
 			<div id="graphic" style="display:none;">
