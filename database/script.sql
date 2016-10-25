@@ -31,7 +31,7 @@ CREATE TABLE sys_photovoltaic(
 CREATE TABLE sys_photovoltaic_config(
    id_sys_foto_config SERIAL,
    sys_description VARCHAR(100) NOT NULL,
-   place_id INT REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE NO ACTION,
+   place_id INT UNIQUE REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE NO ACTION,
    sys_number  INT NOT NULL UNIQUE,
    sys_user VARCHAR(100) NOT NULL UNIQUE,
    sys_key VARCHAR(100) NOT NULL UNIQUE,
@@ -53,8 +53,8 @@ CREATE TABLE sys_thermal(
 CREATE TABLE sys_thermal_config(
    id_sys_term_config SERIAL,
    sys_description VARCHAR(100) NOT NULL,
-   place_id INT REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE NO ACTION,
-   sys_url  INT NOT NULL UNIQUE,
+   place_id INT UNIQUE REFERENCES places(id_place) ON UPDATE NO ACTION ON DELETE NO ACTION,
+   sys_url  VARCHAR(100) NOT NULL UNIQUE,
    sys_user VARCHAR(100) NOT NULL,
    sys_pass VARCHAR(100) NOT NULL,
    PRIMARY KEY(id_sys_term_config)

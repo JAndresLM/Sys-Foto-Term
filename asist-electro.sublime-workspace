@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"de",
+				"description"
+			],
+			[
 				"my",
 				"myLineChart"
 			],
@@ -140,10 +144,6 @@
 				"provincia_id"
 			],
 			[
-				"de",
-				"depends"
-			],
-			[
 				"mu",
 				"muestras"
 			],
@@ -196,28 +196,10 @@
 	"buffers":
 	[
 		{
-			"file": "views/modal_system_photovoltaic.html",
+			"file": "controllers/main_controller.js",
 			"settings":
 			{
-				"buffer_size": 7003,
-				"line_ending": "Unix",
-				"name": "modal_system_photovoltaic.html"
-			}
-		},
-		{
-			"file": "controllers/sys_photovoltaic_controller.js",
-			"settings":
-			{
-				"buffer_size": 2139,
-				"line_ending": "Unix",
-				"name": "sys_photovoltaic_controller.js"
-			}
-		},
-		{
-			"file": "controllers/login_controller.js",
-			"settings":
-			{
-				"buffer_size": 1925,
+				"buffer_size": 3916,
 				"line_ending": "Unix"
 			}
 		}
@@ -296,32 +278,36 @@
 	],
 	"file_history":
 	[
+		"/var/www/html/AsistElectro/controllers/user_interface.js",
 		"/var/www/html/AsistElectro/views/main_view.html",
+		"/var/www/html/AsistElectro/database/script.sql",
+		"/var/www/html/AsistElectro/models/get_day_values_term.php",
+		"/var/www/html/AsistElectro/models/get_day_values_photo.php",
+		"/var/www/html/AsistElectro/styles/styles.css",
+		"/var/www/html/AsistElectro/views/modal_system_photovoltaic.html",
+		"/var/www/html/AsistElectro/controllers/app_controller.js",
+		"/var/www/html/AsistElectro/controllers/utils.js",
+		"/var/www/html/AsistElectro/controllers/sys_photovoltaic_controller.js",
+		"/var/www/html/AsistElectro/models/edit_photo_system.php",
+		"/var/www/html/AsistElectro/models/remove_photo_system.php",
 		"/var/www/html/AsistElectro/models/get_photo_systems.php",
 		"/var/www/html/AsistElectro/models/insert_photo_system.php",
-		"/var/www/html/AsistElectro/database/script.sql",
 		"/var/www/html/AsistElectro/models/get_places.php",
 		"/var/www/html/AsistElectro/controllers/main_controller.js",
 		"/var/www/html/AsistElectro/index.html",
 		"/var/www/html/AsistElectro/controllers/login_controller.js",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_photovoltaic_system.php",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
-		"/var/www/html/AsistElectro/controllers/app_controller.js",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
 		"/var/www/html/AsistElectro/controllers/data.js",
-		"/var/www/html/AsistElectro/controllers/user_interface.js",
 		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
 		"/var/www/html/AsistElectro/models/get_week_values_term.php",
 		"/var/www/html/AsistElectro/models/get_year_values_photo.php",
 		"/var/www/html/AsistElectro/models/get_year_values_term.php",
 		"/var/www/html/AsistElectro/models/get_month_values_term.php",
-		"/var/www/html/AsistElectro/controllers/utils.js",
-		"/var/www/html/AsistElectro/styles/styles.css",
 		"/home/alopez/Descargas/angular-cookies.js",
 		"/var/www/html/AsistElectro/models/get_month_values_photo.php",
-		"/var/www/html/AsistElectro/models/get_day_values_term.php",
 		"/var/www/html/AsistElectro/content/js/angular.min.js",
-		"/var/www/html/AsistElectro/models/get_day_values_photo.php",
 		"/var/www/html/AsistElectro/cronjobs/summary.js",
 		"/var/www/html/AsistElectro/models/get_month_values.php",
 		"/var/www/html/AsistElectro/models/get_user.php",
@@ -417,6 +403,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"showGraphic();",
+			"Ctrl",
+			"sysPhotoCtrl.loadPhotoSystems",
 			"true",
 			"mainCtrl",
 			"places",
@@ -510,95 +499,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "views/modal_system_photovoltaic.html",
+					"file": "controllers/main_controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7003,
+						"buffer_size": 3916,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4960,
-								4960
-							]
-						],
-						"settings":
-						{
-							"auto_name": "modal_system_photovoltaic.html",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1790.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "controllers/sys_photovoltaic_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2139,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1623,
-								1623
-							]
-						],
-						"settings":
-						{
-							"auto_name": "sys_photovoltaic_controller.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 689.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "controllers/login_controller.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1925,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								3736,
+								3736
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 153.0,
+						"translation.y": 1841.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

@@ -1,13 +1,13 @@
 <!-- Modal -->
-<div class="modal fade" id="myModalPhoto" role="dialog" ng-controller="SysPhotoController as sysPhotoCtrl">
+<div class="modal fade" id="myModalThermal" role="dialog" ng-controller="SysThermController as sysThermCtrl">
 	<div class="modal-dialog  modal-lg">
 	    <!-- Modal Content-->
 	    <div class="modal-content">
 	    	<div class="modal-header" style="background-color: #2F2C47;color:white;">
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
 		        <h4 class="modal-title">
-		        	<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> 
-		        	ADMINISTRACIÓN DE LOS SISTEMAS FOTOVOLTAICOS
+		        	<span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 
+		        	ADMINISTRACIÓN DE LOS SISTEMAS TÉRMICOS
 		        </h4>
 	    	</div>
 	    	<div class="modal-body" style="font-size:16px;">
@@ -19,23 +19,23 @@
 		          					<strong>Descripción</strong>
 		          				</div>
 		          				<div class="col-md-2">
-		          					<strong>Número</strong>
+		          					<strong>url (IP)</strong>
 		          				</div>
 		          				<div class="col-md-2">
 		          					<strong>Lugar</strong>
 		          				</div>
 		          				<div class="col-md-2">
-		          					<strong>Id de Usuario</strong>
+		          					<strong>usuario</strong>
 		          				</div>
 		          				<div class="col-md-2">
-		          					<strong>Key</strong>
+		          					<strong>contraseña</strong>
 		          				</div>
 		          				<div class="col-md-2">
 		          					<strong>Acciones</strong>
 		          				</div>
 		          			</div>
 		          		</li>
-		          		<li class="list-group-item" ng-repeat="sys in sysPhotoCtrl.photoSystems track by $index">
+		          		<li class="list-group-item" ng-repeat="sys in sysThermCtrl.thermSystems track by $index">
 		          			<div class="row">
 		          				<div class="col-md-2">
 		          					<input 
@@ -49,8 +49,8 @@
 		          					<input 
 			          					type="text" 
 			          					class="form-control" 
-			          					placeholder="Number"
-			          					ng-model="sys.number"
+			          					placeholder="Url"
+			          					ng-model="sys.url"
 			          					ng-disabled="sys.disabled">
 		          				</div>
 		          				<div class="col-md-2">
@@ -59,7 +59,7 @@
 										class="form-control"
 										ng-disabled="sys.disabled">
 								        <option 
-								        	ng-repeat="p in sysPhotoCtrl.places" 
+								        	ng-repeat="p in sysThermCtrl.places" 
 								        	value="{{p.id}}"
 								        	ng-selected="sys.place==p.id"
 								        	>
@@ -71,7 +71,7 @@
 		          					<input 
 			          					type="text" 
 			          					class="form-control" 
-			          					placeholder="Id de Usuario"
+			          					placeholder="Usuario"
 			          					ng-model="sys.user"
 			          					ng-disabled="sys.disabled">
 		          				</div>
@@ -79,8 +79,8 @@
 		          					<input 
 			          					type="text" 
 			          					class="form-control" 
-			          					placeholder="Key"
-			          					ng-model="sys.key"
+			          					placeholder="Constraseña"
+			          					ng-model="sys.pass"
 			          					ng-disabled="sys.disabled">
 		          				</div>
 		          				<div class="col-md-2">
@@ -90,8 +90,8 @@
 			          						class="btn btn-warning" 
 			          						aria-label="Left Align"
 			          						ng-show="sys.disabled"
-			          						ng-disabled="sys.disabled && sysPhotoCtrl.action!=''"
-			          						ng-click="sys.disabled=sysPhotoCtrl.startAction('edit')">
+			          						ng-disabled="sys.disabled && sysThermCtrl.action!=''"
+			          						ng-click="sys.disabled=sysThermCtrl.startAction('edit')">
 										  	<span 
 										  		class="glyphicon glyphicon-pencil" 
 										  		aria-hidden="true">E
@@ -102,8 +102,8 @@
 											class="btn btn-danger" 
 											aria-label="Left Align"
 											ng-show="sys.disabled"
-											ng-disabled="sys.disabled && sysPhotoCtrl.action!=''"
-											ng-click="sys.disabled=sysPhotoCtrl.startAction('remove')">
+											ng-disabled="sys.disabled && sysThermCtrl.action!=''"
+											ng-click="sys.disabled=sysThermCtrl.startAction('remove')">
 										  	<span 
 										  		class="glyphicon glyphicon-erase" 
 										  		aria-hidden="true">B
@@ -115,7 +115,7 @@
 			          						class="btn btn-success" 
 			          						aria-label="Left Align"
 			          						ng-show="!sys.disabled"
-			          						ng-click="sysPhotoCtrl.confirmAction(sysPhotoCtrl.action,sys)">
+			          						ng-click="sysThermCtrl.confirmAction(sysThermCtrl.action,sys)">
 										  	<span 
 										  		class="glyphicon glyphicon-ok" 
 										  		aria-hidden="true">A
@@ -126,7 +126,7 @@
 			          						class="btn btn-danger" 
 			          						aria-label="Left Align"
 			          						ng-show="!sys.disabled"
-			          						ng-click="sys.disabled=sysPhotoCtrl.cancel()">
+			          						ng-click="sys.disabled=sysThermCtrl.cancel()">
 										  	<span 
 										  		class="glyphicon glyphicon-remove" 
 										  		aria-hidden="true">C
@@ -146,24 +146,24 @@
           					type="text" 
           					class="form-control" 
           					placeholder="Descripción"
-          					ng-disabled="sysPhotoCtrl.action!=''"
-          					ng-model="sysPhotoCtrl.description">
+          					ng-disabled="sysThermCtrl.action!=''"
+          					ng-model="sysThermCtrl.description">
       				</div>
       				<div class="col-md-2">
       					<input 
       						type="text" 
       						class="form-control" 
-      						placeholder="Número"
-      						ng-disabled="sysPhotoCtrl.action!=''"
-      						ng-model="sysPhotoCtrl.number">
+      						placeholder="Url"
+      						ng-disabled="sysThermCtrl.action!=''"
+      						ng-model="sysThermCtrl.url">
       				</div>
       				<div class="col-md-2">
       					<select 
 							id="slct_place" 
 							class="form-control"
-							ng-disabled="sysPhotoCtrl.action!=''"
-							ng-options="p.place for p in sysPhotoCtrl.places track by p.id"
-							ng-model="sysPhotoCtrl.place"
+							ng-disabled="sysThermCtrl.action!=''"
+							ng-options="p.place for p in sysThermCtrl.places track by p.id"
+							ng-model="sysThermCtrl.place"
 						>
 						</select>
       				</div>
@@ -171,25 +171,25 @@
       					<input 
       						type="text" 
       						class="form-control" 
-      						placeholder="Id de Usuario"
-      						ng-disabled="sysPhotoCtrl.action!=''"
-      						ng-model="sysPhotoCtrl.user">
+      						placeholder="Usuario"
+      						ng-disabled="sysThermCtrl.action!=''"
+      						ng-model="sysThermCtrl.user">
       				</div>
       				<div class="col-md-2">
       					<input 
       						type="text" 
       						class="form-control" 
-      						placeholder="Key"
-      						ng-disabled="sysPhotoCtrl.action!=''"
-      						ng-model="sysPhotoCtrl.key">
+      						placeholder="Constraseña"
+      						ng-disabled="sysThermCtrl.action!=''"
+      						ng-model="sysThermCtrl.pass">
       				</div>
       				<div class="col-md-2">
       					<button 
       						type="button" 
       						class="btn btn-success" 
       						aria-label="Left Align"
-      						ng-disabled="sysPhotoCtrl.action!=''"
-      						ng-click="sysPhotoCtrl.insertSystem()">
+      						ng-disabled="sysThermCtrl.action!=''"
+      						ng-click="sysThermCtrl.insertSystem()">
 						  	<span 
 						  		class="glyphicon glyphicon-save" 
 						  		aria-hidden="true">

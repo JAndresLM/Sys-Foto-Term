@@ -44,10 +44,13 @@
 	          			aria-haspopup="true" 
 	          			aria-expanded="false"
 	          		>
-	          			Sistemas<span class="caret"></span>
+	          			Sistemas <span class="caret"></span>
 	          		</a>
 	          		<ul class="dropdown-menu">
-	            		<li><a>Termico</a></li>
+	            		<li
+	            			ng-click="loginCtrl.showSystemThermal()">
+	            			<a>Térmico</a>
+	            		</li>
 	            		<li 
 	            			ng-click="loginCtrl.showSystemPhotovoltaic()"><!--loginCtrl.adminPass==='' &&-->
 	            			<a>Fotovoltaico</a>
@@ -252,3 +255,4 @@
 </div>
 
 <div ng-include="'views/modal_system_photovoltaic.html'"></div>
+<div ng-include="'views/modal_system_thermal.html'"></div>

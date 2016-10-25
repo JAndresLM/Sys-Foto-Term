@@ -48,7 +48,12 @@
 
         //FUNCION DE LOGOUT 
         loginCtrl.showSystemPhotovoltaic=function (){
-            $('#myModal').modal('show');
+            $('#myModalPhoto').modal('show');
+        };
+
+        //FUNCION DE LOGOUT 
+        loginCtrl.showSystemThermal=function (){
+            $('#myModalThermal').modal('show');
         };
     });
 })();	
