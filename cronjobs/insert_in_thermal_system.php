@@ -34,7 +34,7 @@
 			$result = pg_query($conn,$query) or die ("Error durante la consulta:".pg_last_error());
 
 			//EXIT MESSAGE
-			//echo 'Date inserted successfully! \n';
+			//echo 'Date inserted successfully!';
 			//echo 'Query: ' .$query;
 		
 		}catch(Exception $e) {
