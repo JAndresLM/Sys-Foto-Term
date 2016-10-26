@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tie",
+				"timestamp"
+			],
+			[
+				"sa",
+				"start"
+			],
+			[
 				"de",
 				"description"
 			],
@@ -203,6 +211,22 @@
 				"line_ending": "Unix",
 				"name": "sys_thermal_controller.js"
 			}
+		},
+		{
+			"file": "database/script.sql",
+			"settings":
+			{
+				"buffer_size": 2202,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cronjobs/insert_in_photovoltaic_system.php",
+			"settings":
+			{
+				"buffer_size": 2607,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -271,10 +295,13 @@
 	[
 		"/var/www/html/AsistElectro",
 		"/var/www/html/AsistElectro/cronjobs",
-		"/var/www/html/AsistElectro/database"
+		"/var/www/html/AsistElectro/database",
+		"/var/www/html/AsistElectro/models"
 	],
 	"file_history":
 	[
+		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
+		"/var/www/html/AsistElectro/models/get_places.php",
 		"/var/www/html/AsistElectro/database/script.sql",
 		"/var/www/html/AsistElectro/views/modal_system_photovoltaic.html",
 		"/var/www/html/AsistElectro/views/modal_system_thermal.html",
@@ -297,9 +324,7 @@
 		"/var/www/html/AsistElectro/models/remove_photo_system.php",
 		"/var/www/html/AsistElectro/models/get_photo_systems.php",
 		"/var/www/html/AsistElectro/models/insert_photo_system.php",
-		"/var/www/html/AsistElectro/models/get_places.php",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_photovoltaic_system.php",
-		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
 		"/var/www/html/AsistElectro/controllers/data.js",
 		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
@@ -405,6 +430,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"row",
 			"Photo",
 			"photo",
 			"Photo",
@@ -520,7 +546,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -550,7 +576,66 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "database/script.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								730,
+								357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "cronjobs/insert_in_photovoltaic_system.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2607,
+								2607
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1122.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

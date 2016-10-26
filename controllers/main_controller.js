@@ -64,14 +64,27 @@
 	                
 	                if(data.values!=null){
 	                	myBarChart.data=mainCtrl.dataG.data;
+
 	                	myLineChart.data.labels=data.lines;
 	                	myLineChart.data.datasets[0].data=data.values;
 	                	myLineChart.data.datasets[0].label=mainCtrl.dataSelected;
+
 						myBarChart.update();
 						myLineChart.update();
+
 						showGraphic();
 					}else{
+
 						showNoResults();
+
+						myBarChart.data.labels=[];
+	                	myBarChart.data.datasets[0].data=[];
+
+						myLineChart.data.labels=[];
+	                	myLineChart.data.datasets[0].data=[];
+	                	
+						myBarChart.update();
+						myLineChart.update();
 					}  
 	            })
 	            .error(function (err){

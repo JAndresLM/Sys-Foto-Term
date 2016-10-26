@@ -13,7 +13,6 @@
 	$start = $timestamp-86400;
 	$end = $timestamp;
 	
-	echo "midnight:".$timestamp." start:".$start." end:".$end;
 
 	//ITERATE ACROSS SYSTEMS
 	while ($system = pg_fetch_row($systemResults)){
