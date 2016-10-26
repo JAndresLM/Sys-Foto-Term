@@ -196,11 +196,12 @@
 	"buffers":
 	[
 		{
-			"file": "controllers/main_controller.js",
+			"file": "controllers/sys_thermal_controller.js",
 			"settings":
 			{
-				"buffer_size": 3916,
-				"line_ending": "Unix"
+				"buffer_size": 2885,
+				"line_ending": "Unix",
+				"name": "sys_thermal_controller.js"
 			}
 		}
 	],
@@ -269,22 +270,26 @@
 	"expanded_folders":
 	[
 		"/var/www/html/AsistElectro",
-		"/var/www/html/AsistElectro/controllers",
 		"/var/www/html/AsistElectro/cronjobs",
-		"/var/www/html/AsistElectro/database",
-		"/var/www/html/AsistElectro/models",
-		"/var/www/html/AsistElectro/styles",
-		"/var/www/html/AsistElectro/views"
+		"/var/www/html/AsistElectro/database"
 	],
 	"file_history":
 	[
-		"/var/www/html/AsistElectro/controllers/user_interface.js",
-		"/var/www/html/AsistElectro/views/main_view.html",
 		"/var/www/html/AsistElectro/database/script.sql",
+		"/var/www/html/AsistElectro/views/modal_system_photovoltaic.html",
+		"/var/www/html/AsistElectro/views/modal_system_thermal.html",
+		"/var/www/html/AsistElectro/views/main_view.html",
+		"/var/www/html/AsistElectro/models/edit_therm_system.php",
+		"/var/www/html/AsistElectro/models/remove_therm_system.php",
+		"/var/www/html/AsistElectro/models/insert_therm_system.php",
+		"/var/www/html/AsistElectro/models/get_therm_systems.php",
+		"/var/www/html/AsistElectro/controllers/main_controller.js",
+		"/var/www/html/AsistElectro/controllers/login_controller.js",
+		"/var/www/html/AsistElectro/index.html",
+		"/var/www/html/AsistElectro/controllers/user_interface.js",
 		"/var/www/html/AsistElectro/models/get_day_values_term.php",
 		"/var/www/html/AsistElectro/models/get_day_values_photo.php",
 		"/var/www/html/AsistElectro/styles/styles.css",
-		"/var/www/html/AsistElectro/views/modal_system_photovoltaic.html",
 		"/var/www/html/AsistElectro/controllers/app_controller.js",
 		"/var/www/html/AsistElectro/controllers/utils.js",
 		"/var/www/html/AsistElectro/controllers/sys_photovoltaic_controller.js",
@@ -293,9 +298,6 @@
 		"/var/www/html/AsistElectro/models/get_photo_systems.php",
 		"/var/www/html/AsistElectro/models/insert_photo_system.php",
 		"/var/www/html/AsistElectro/models/get_places.php",
-		"/var/www/html/AsistElectro/controllers/main_controller.js",
-		"/var/www/html/AsistElectro/index.html",
-		"/var/www/html/AsistElectro/controllers/login_controller.js",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_photovoltaic_system.php",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
@@ -403,6 +405,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
+			"photo",
+			"Photo",
 			"showGraphic();",
 			"Ctrl",
 			"sysPhotoCtrl.loadPhotoSystems",
@@ -504,28 +525,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "controllers/main_controller.js",
+					"file": "controllers/sys_thermal_controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3916,
+						"buffer_size": 2885,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3736,
-								3736
+								1612,
+								1612
 							]
 						],
 						"settings":
 						{
+							"auto_name": "sys_thermal_controller.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1841.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
