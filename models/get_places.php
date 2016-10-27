@@ -9,7 +9,8 @@
 		while ($row = pg_fetch_row($result)) {
 		  	$places[] = array(
 		  		'id' => $row[0],
-		  		'place' => $row[1]
+		  		'place' => $row[1],
+		  		'disabled' => true,
 		  	);
 		}
 	}else{

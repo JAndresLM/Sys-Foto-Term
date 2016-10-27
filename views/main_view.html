@@ -34,8 +34,14 @@
 	        	</div>
 	      	</form>
 			<ul class="nav navbar-nav">
-	        	<li><a>Usuarios</a></li>
-	        	<li><a>Lugares</a></li>
+	        	<li
+	        		ng-click="loginCtrl.adminPass==='adminPass2016' && loginCtrl.showUsers()">
+	        		<a>Usuarios</a>
+	        	</li>
+	        	<li
+	        		ng-click="loginCtrl.adminPass==='adminPass2016' && loginCtrl.showPlaces()">
+	        		<a>Lugares</a>
+	        	</li>
 	        	<li class="dropdown">
 	          		<a
 	          			class="dropdown-toggle" 
@@ -48,14 +54,18 @@
 	          		</a>
 	          		<ul class="dropdown-menu">
 	            		<li
-	            			ng-click="loginCtrl.showSystemThermal()">
+	            			ng-click="loginCtrl.adminPass==='adminPass2016' && loginCtrl.showSystemThermal()">
 	            			<a>Térmico</a>
 	            		</li>
 	            		<li 
-	            			ng-click="loginCtrl.showSystemPhotovoltaic()"><!--loginCtrl.adminPass==='' &&-->
+	            			ng-click="loginCtrl.adminPass==='adminPass2016' && loginCtrl.showSystemPhotovoltaic()"><!--loginCtrl.adminPass==='' &&-->
 	            			<a>Fotovoltaico</a>
 	            		</li>
 	          		</ul>
+	        	</li>
+	        	<li
+	        		ng-click="loginCtrl.showInstructions()">
+	        		<a>Instrucciones</a>
 	        	</li>
 	      	</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -256,3 +266,6 @@
 
 <div ng-include="'views/modal_system_photovoltaic.html'"></div>
 <div ng-include="'views/modal_system_thermal.html'"></div>
+<div ng-include="'views/modal_places.html'"></div>
+<div ng-include="'views/modal_users.html'"></div>
+<div ng-include="'views/modal_instructions.html'"></div>

@@ -43,7 +43,7 @@
 	                sysPhotoCtrl.key="";     
 	            })
 	            .error(function (err){
-	                alert("Error");
+	                
 	            });
 		};
 
@@ -56,7 +56,7 @@
 		            	sysPhotoCtrl.loadPhotoSystems();
 		            })
 		            .error(function (err){
-		                alert("No se pudo eliminar");
+		                
 		            });
 			}
 
@@ -67,7 +67,7 @@
 		            	sysPhotoCtrl.loadPhotoSystems();
 		            })
 		            .error(function (err){
-		                alert("No se pudo editar");
+		                
 		            });
 			}
 

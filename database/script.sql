@@ -3,10 +3,11 @@ CREATE DATABASE dbAsistElectro;
 
 --DROP TABLE users;
 CREATE TABLE users(
-   usern		VARCHAR(25),
+   id_user  SERIAL,
+   usern		VARCHAR(25) NOT NULL UNIQUE,
    passw		VARCHAR(25) NOT NULL UNIQUE,
    fullname	VARCHAR(50)	NOT NULL,
-   PRIMARY KEY(usern)
+   PRIMARY KEY(id_user)
 );
 
 --DROP TABLE places;
@@ -65,7 +66,7 @@ CREATE TABLE sys_thermal_config(
 INSERT INTO users(usern,passw,fullname) VALUES 
    ('alopez','AndresLM123','Andrés López M'),
 	('gcastro','GuilleCast','Guillermo Castro'),
-	('tguzman','TomGuzm','Tomas Gúzman');
+	('tguzman','TomGuzm','Tomas Gúzman'),
    ('admin','adminPass2016','Administrador');
 
-INSERT INTO places(id_place,place) VALUES ('Lecheria'),('C-Tec'),('San Bosco'),('llafrak');
+INSERT INTO places(place) VALUES ('Lecheria'),('C-Tec'),('San Bosco'),('llafrak');

@@ -43,7 +43,7 @@
 	                sysThermCtrl.pass="";     
 	            })
 	            .error(function (err){
-	                alert("Error");
+	                
 	            });
 		};
 
@@ -56,7 +56,7 @@
 		            	sysThermCtrl.loadThermSystems();
 		            })
 		            .error(function (err){
-		                alert("No se pudo eliminar");
+		                
 		            });
 			}
 
@@ -68,7 +68,7 @@
 		            	sysThermCtrl.loadThermSystems();
 		            })
 		            .error(function (err){
-		                alert("No se pudo editar");
+		                
 		            });
 			}
 

@@ -46,14 +46,29 @@
             //$location.path("/");
         };
 
-        //FUNCION DE LOGOUT 
+        //FUNCION PARA MOSTRAR EL MODAL DEL SISTEMA FOTOVOLTAICO 
         loginCtrl.showSystemPhotovoltaic=function (){
             $('#myModalPhoto').modal('show');
         };
 
-        //FUNCION DE LOGOUT 
+        //FUNCION PARA MOSTRAR EL MODAL DEL SISTEMA TERMICO 
         loginCtrl.showSystemThermal=function (){
             $('#myModalThermal').modal('show');
+        };
+
+        //FUNCION PARA MOSTRAR EL MODAL DE LOS LUGARES
+        loginCtrl.showPlaces=function (){
+            $('#myModalPlaces').modal('show');
+        };
+
+        //FUNCION PARA MOSTRAR EL MODAL DE LOS USUARIOS
+        loginCtrl.showUsers=function (){
+            $('#myModalUsers').modal('show');
+        };
+
+        //FUNCION PARA MOSTRAR EL MODAL DE LAS INSTRUCCIONES
+        loginCtrl.showInstructions=function (){
+            $('#myModalInstructions').modal('show');
         };
     });
 })();	

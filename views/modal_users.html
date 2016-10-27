@@ -1,0 +1,160 @@
+<!-- Modal -->
+<div class="modal fade" id="myModalUsers" role="dialog" ng-controller="UsersController as usersCtrl">
+	<div class="modal-dialog  modal-lg">
+	    <!-- Modal Content-->
+	    <div class="modal-content">
+	    	<div class="modal-header" style="background-color: #2F2C47;color:white;">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">
+		        	<span class="glyphicon glyphicon-knight" aria-hidden="true"></span> 
+		        	ADMINISTRACIÓN DE LOS USUARIOS
+		        </h4>
+	    	</div>
+	    	<div class="modal-body" style="font-size:16px;">
+	          	<div class="row">
+		          	<ul class="list-group">
+		          		<li>
+		          			<div class="row text-center" >
+		          				<div class="col-md-4">
+		          					<strong>Nombre Completo</strong>
+		          				</div>
+		          				<div class="col-md-3">
+		          					<strong>Nombre de Usuario</strong>
+		          				</div>
+		          				<div class="col-md-3">
+		          					<strong>Contraseña</strong>
+		          				</div>
+		          				<div class="col-md-2 text-left">
+		          					<strong>Acciones</strong>
+		          				</div>
+		          			</div>
+		          		</li>
+		          		<li 
+		          			class="list-group-item" 
+		          			ng-repeat="user in usersCtrl.users track by $index">
+		          			<div class="row">
+		          				<div class="col-md-4">
+		          					<input 
+			          					type="text" 
+			          					class="form-control" 
+			          					placeholder="Nombre Completo"
+			          					ng-model="user.name"
+			          					ng-disabled="user.disabled">
+		          				</div>
+		          				<div class="col-md-3">
+		          					<input 
+			          					type="text" 
+			          					class="form-control" 
+			          					placeholder="Nombre de Usuario"
+			          					ng-model="user.username"
+			          					ng-disabled="user.disabled">
+		          				</div>
+		          				<div class="col-md-3">
+		          					<input 
+			          					type="password" 
+			          					class="form-control" 
+			          					placeholder="Contraseña"
+			          					ng-model="user.password"
+			          					ng-disabled="user.disabled">
+		          				</div>
+		          				<div class="col-md-2">
+			          				<div class="btn-group" role="group">
+			          					<button 
+			          						type="button" 
+			          						class="btn btn-warning" 
+			          						aria-label="Left Align"
+			          						ng-show="user.disabled"
+			          						ng-disabled="user.disabled && usersCtrl.action!=''"
+			          						ng-click="user.disabled=usersCtrl.startAction('edit')">
+										  	<span 
+										  		class="glyphicon glyphicon-pencil" 
+										  		aria-hidden="true">E
+										  	</span>
+										</button>
+										<button 
+											type="button" 
+											class="btn btn-danger" 
+											aria-label="Left Align"
+											ng-show="user.disabled"
+											ng-disabled="user.disabled && usersCtrl.action!=''"
+											ng-click="user.disabled=usersCtrl.startAction('remove')">
+										  	<span 
+										  		class="glyphicon glyphicon-erase" 
+										  		aria-hidden="true">B
+										  	</span>
+										</button>
+										<!-- confirm buttons-->
+										<button 
+			          						type="button" 
+			          						class="btn btn-success" 
+			          						aria-label="Left Align"
+			          						ng-show="!user.disabled"
+			          						ng-click="usersCtrl.confirmAction(usersCtrl.action,user)">
+										  	<span 
+										  		class="glyphicon glyphicon-ok" 
+										  		aria-hidden="true">A
+										  	</span>
+										</button>
+										<button 
+			          						type="button" 
+			          						class="btn btn-danger" 
+			          						aria-label="Left Align"
+			          						ng-show="!user.disabled"
+			          						ng-click="user.disabled=usersCtrl.cancel()">
+										  	<span 
+										  		class="glyphicon glyphicon-remove" 
+										  		aria-hidden="true">C
+										  	</span>
+										</button>
+									</div>
+		          				</div>
+		          			</div>
+						</li>
+					</ul>	
+	          	</div>	
+	    	</div>
+	    	<div class="modal-footer">
+	        	<div class="row">
+      				<div class="col-md-4">
+          				<input 
+          					type="text" 
+          					class="form-control" 
+          					placeholder="Nombre Completo"
+          					ng-disabled="usersCtrl.action!=''"
+          					ng-model="usersCtrl.name">
+      				</div>
+      				<div class="col-md-3">
+          				<input 
+          					type="text" 
+          					class="form-control" 
+          					placeholder="Nombre de Usuario"
+          					ng-disabled="usersCtrl.action!=''"
+          					ng-model="usersCtrl.username">
+      				</div>
+      				<div class="col-md-3">
+          				<input 
+          					type="text" 
+          					class="form-control" 
+          					placeholder="Contraseña"
+          					ng-disabled="usersCtrl.action!=''"
+          					ng-model="usersCtrl.password">
+      				</div>
+      				<div class="col-md-2">
+      					<button 
+      						type="button" 
+      						class="btn btn-success" 
+      						aria-label="Left Align"
+      						ng-disabled="usersCtrl.action!=''"
+      						ng-click="usersCtrl.insertUser()">
+						  	<span 
+						  		class="glyphicon glyphicon-save" 
+						  		aria-hidden="true">
+						  		AGREGAR
+						  	</span>
+						</button>
+      				</div>
+		        </div>
+	      	</div>
+	    </div>  
+    </div>
+</div>

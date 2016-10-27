@@ -1,0 +1,122 @@
+<!-- Modal -->
+<div class="modal fade" id="myModalPlaces" role="dialog" ng-controller="PlacesController as placesCtrl">
+	<div class="modal-dialog  modal-lg">
+	    <!-- Modal Content-->
+	    <div class="modal-content">
+	    	<div class="modal-header" style="background-color: #2F2C47;color:white;">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">
+		        	<span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> 
+		        	ADMINISTRACIÓN DE LOS LUGARES
+		        </h4>
+	    	</div>
+	    	<div class="modal-body" style="font-size:16px;">
+	          	<div class="row">
+		          	<ul class="list-group">
+		          		<li>
+		          			<div class="row text-center" >
+		          				<div class="col-md-10">
+		          					<strong>Nombre del Lugar</strong>
+		          				</div>
+		          				<div class="col-md-2 text-left">
+		          					<strong>Acciones</strong>
+		          				</div>
+		          			</div>
+		          		</li>
+		          		<li 
+		          			class="list-group-item" 
+		          			ng-repeat="p in placesCtrl.places track by $index">
+		          			<div class="row">
+		          				<div class="col-md-10">
+		          					<input 
+			          					type="text" 
+			          					class="form-control" 
+			          					placeholder="Nombre del lugar"
+			          					ng-model="p.place"
+			          					ng-disabled="p.disabled">
+		          				</div>
+		          				<div class="col-md-2">
+			          				<div class="btn-group" role="group">
+			          					<button 
+			          						type="button" 
+			          						class="btn btn-warning" 
+			          						aria-label="Left Align"
+			          						ng-show="p.disabled"
+			          						ng-disabled="p.disabled && placesCtrl.action!=''"
+			          						ng-click="p.disabled=placesCtrl.startAction('edit')">
+										  	<span 
+										  		class="glyphicon glyphicon-pencil" 
+										  		aria-hidden="true">E
+										  	</span>
+										</button>
+										<button 
+											type="button" 
+											class="btn btn-danger" 
+											aria-label="Left Align"
+											ng-show="p.disabled"
+											ng-disabled="p.disabled && placesCtrl.action!=''"
+											ng-click="p.disabled=placesCtrl.startAction('remove')">
+										  	<span 
+										  		class="glyphicon glyphicon-erase" 
+										  		aria-hidden="true">B
+										  	</span>
+										</button>
+										<!-- confirm buttons-->
+										<button 
+			          						type="button" 
+			          						class="btn btn-success" 
+			          						aria-label="Left Align"
+			          						ng-show="!p.disabled"
+			          						ng-click="placesCtrl.confirmAction(placesCtrl.action,p)">
+										  	<span 
+										  		class="glyphicon glyphicon-ok" 
+										  		aria-hidden="true">A
+										  	</span>
+										</button>
+										<button 
+			          						type="button" 
+			          						class="btn btn-danger" 
+			          						aria-label="Left Align"
+			          						ng-show="!p.disabled"
+			          						ng-click="p.disabled=placesCtrl.cancel()">
+										  	<span 
+										  		class="glyphicon glyphicon-remove" 
+										  		aria-hidden="true">C
+										  	</span>
+										</button>
+									</div>
+		          				</div>
+		          			</div>
+						</li>
+					</ul>	
+	          	</div>	
+	    	</div>
+	    	<div class="modal-footer">
+	        	<div class="row">
+      				<div class="col-md-10">
+          				<input 
+          					type="text" 
+          					class="form-control" 
+          					placeholder="Nombre del lugar"
+          					ng-disabled="placesCtrl.action!=''"
+          					ng-model="placesCtrl.place">
+      				</div>
+      				<div class="col-md-2">
+      					<button 
+      						type="button" 
+      						class="btn btn-success" 
+      						aria-label="Left Align"
+      						ng-disabled="placesCtrl.action!=''"
+      						ng-click="placesCtrl.insertPlace()">
+						  	<span 
+						  		class="glyphicon glyphicon-save" 
+						  		aria-hidden="true">
+						  		AGREGAR
+						  	</span>
+						</button>
+      				</div>
+		        </div>
+	      	</div>
+	    </div>  
+    </div>
+</div>

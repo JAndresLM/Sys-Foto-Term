@@ -221,6 +221,14 @@
 			}
 		},
 		{
+			"file": "controllers/main_controller.js",
+			"settings":
+			{
+				"buffer_size": 4174,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "cronjobs/insert_in_photovoltaic_system.php",
 			"settings":
 			{
@@ -294,12 +302,13 @@
 	"expanded_folders":
 	[
 		"/var/www/html/AsistElectro",
+		"/var/www/html/AsistElectro/controllers",
 		"/var/www/html/AsistElectro/cronjobs",
-		"/var/www/html/AsistElectro/database",
-		"/var/www/html/AsistElectro/models"
+		"/var/www/html/AsistElectro/database"
 	],
 	"file_history":
 	[
+		"/var/www/html/AsistElectro/controllers/data.js",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_thermal_system.php",
 		"/var/www/html/AsistElectro/models/get_places.php",
 		"/var/www/html/AsistElectro/database/script.sql",
@@ -326,7 +335,6 @@
 		"/var/www/html/AsistElectro/models/insert_photo_system.php",
 		"/var/www/html/AsistElectro/cronjobs/insert_in_photovoltaic_system.php",
 		"/var/www/html/AsistElectro/views/login_form_view.html",
-		"/var/www/html/AsistElectro/controllers/data.js",
 		"/var/www/html/AsistElectro/models/get_week_values_photo.php",
 		"/var/www/html/AsistElectro/models/get_week_values_term.php",
 		"/var/www/html/AsistElectro/models/get_year_values_photo.php",
@@ -546,7 +554,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -576,7 +584,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -606,11 +614,40 @@
 						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "controllers/main_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2558,
+								2558
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1130.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "cronjobs/insert_in_photovoltaic_system.php",
 					"semi_transient": false,
 					"settings":
@@ -635,7 +672,7 @@
 						"translation.y": 1122.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
