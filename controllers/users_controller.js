@@ -28,7 +28,7 @@
 	                usersCtrl.password="";   
 	            })
 	            .error(function (err){
-
+	            	usersCtrl.loadUsers();
 	            });
 		};
 
@@ -41,7 +41,7 @@
 		            	usersCtrl.loadUsers();
 		            })
 		            .error(function (err){
-		                
+		                usersCtrl.loadUsers();
 		            });
 			}
 
@@ -51,7 +51,7 @@
 		            	usersCtrl.loadUsers();
 		            })
 		            .error(function (err){
-		                
+		                usersCtrl.loadUsers();
 		            });
 			}
 

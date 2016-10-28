@@ -14,10 +14,63 @@
 	          	<div class="row">
 		          	<ul class="list-group">
 		          		<li>
-		          			<div class="row container" >
-		          				<div class="col-md-12">
-		          					<strong>Instruccion</strong>
+		          			<div class="row">
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Utilizar las opciones de lugares, usuarios y sistemas</strong>
+		          					<p>Para poder acceder a esos elementos del menú es necesario colocar en el campo de texto la contraseña de administrador.</p>
 		          				</div>
+		          				<div class="col-xs-1"></div>
+		          			</div>
+		          		</li>
+		          		<li>
+		          			<div class="row" >
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Usuario Administrador</strong>
+		          					<p>Existe un usuario administrador, el cual nunca se muestra desde la interfaz de usuarios, esto por seguridad, en caso de que se eliminen todos los usuarios existentes, de esta manera siempre de podrá iniciar sesión y administrar los distintos elementos del sistema.</p>
+		          				</div>
+		          				<div class="col-xs-1"></div>
+		          			</div>
+		          		</li>
+		          		<li>
+		          			<div class="row" >
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Lugares y sistemas</strong>
+		          					<p>Para que un sistema funcione y se puedan guardar datos en la tablas de forma automática debe estar relacionado con un lugar<br>Un lugar puede estar asociado únicamente a un sistema fotovoltaico y otro térmico, pero no dos iguales, por ejemplo no pueden existir dos sistemas fotovoltaicos para la lechería, en ese caso tendría que crearse un lugar para el nuevo sistema.</p>
+		          				</div>
+		          				<div class="col-xs-1"></div>
+		          			</div>
+		          		</li>
+		          		<li>
+		          			<div class="row" >
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Datos requeridos</strong>
+		          					<p>Cuando se vaya agregar un lugar, sistema o usuario, favor completar todos los datos, si dice número e inserta letras no va a funcionar, cuando piden una url(IP) escribirla de la manera en que la usan en el navegador, ejemplo http://172.24.28.180, no poder / al final de la url, que termine solamente con el número.</p>
+		          				</div>
+		          				<div class="col-xs-1"></div>
+		          			</div>
+		          		</li>
+		          		<li>
+		          			<div class="row" >
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Borrar información</strong>
+		          					<p>No hay problemas al borrar un usuario, pero si en borrar lugares, si el lugar esta asociado a un sistema y ya existen datos, automaticamente al borrar el lugar se borrará todos los datos de los sistemas térmicos y fotovoltaicos, incluyendo configuración y los datos utilizados para crear gráficos, así que se debe tener mucho cuidado.</p>
+		          				</div>
+		          				<div class="col-xs-1"></div>
+		          			</div>
+		          		</li>
+		          		<li>
+		          			<div class="row" >
+		          				<div class="col-xs-1"></div>
+		          				<div class="col-xs-10">
+		          					<strong>Inserción de datos automáticamente</strong>
+		          					<p>La aplicación solicita datos de los sistemas fotovoltaicos de enphase, todos los días a las 5am, y de los sistemas térmicos (Datalogger) cada 15 minutos durante todo el día, por lo tanto el servidor se debe encontrar siempre encendido y con acceso a internet, de lo contrario podrían faltar datos al momento de crear los gráficos, mostrando resultados menos completos.</p>
+		          				</div>
+		          				<div class="col-xs-1"></div>
 		          			</div>
 		          		</li>
 					</ul>	

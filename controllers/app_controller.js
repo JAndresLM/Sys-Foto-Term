@@ -62,6 +62,6 @@ app.run(function($rootScope, auth)
 {
     $rootScope.$on('$routeChangeStart', function()
     {
-        //auth.checkStatus();
+        auth.checkStatus();
     })
 })

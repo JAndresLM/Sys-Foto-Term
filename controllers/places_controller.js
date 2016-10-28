@@ -6,6 +6,7 @@
 
         placesCtrl.action="";
 
+
 		//FUNCTION TO LOAD PLACES
 		placesCtrl.loadPlaces=function (){
 			$http.get("./models/get_places.php?")
@@ -23,10 +24,10 @@
 			$http.get("./models/insert_place.php?place="+placesCtrl.place)
 	            .success(function (data){
 	                placesCtrl.loadPlaces();
-	                placesCtrl.place="";   
+	                placesCtrl.place="";  
 	            })
 	            .error(function (err){
-
+	            	placesCtrl.loadPlaces();
 	            });
 		};
 
@@ -39,7 +40,7 @@
 		            	placesCtrl.loadPlaces();
 		            })
 		            .error(function (err){
-		                
+		                placesCtrl.loadPlaces();
 		            });
 			}
 
@@ -49,7 +50,7 @@
 		            	placesCtrl.loadPlaces();
 		            })
 		            .error(function (err){
-		                
+		                placesCtrl.loadPlaces();
 		            });
 			}
 

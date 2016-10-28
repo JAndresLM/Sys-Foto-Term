@@ -43,7 +43,7 @@
 	                sysPhotoCtrl.key="";     
 	            })
 	            .error(function (err){
-	                
+	                sysPhotoCtrl.loadPhotoSystems();
 	            });
 		};
 
@@ -56,7 +56,7 @@
 		            	sysPhotoCtrl.loadPhotoSystems();
 		            })
 		            .error(function (err){
-		                
+		                sysPhotoCtrl.loadPhotoSystems();
 		            });
 			}
 
@@ -67,7 +67,7 @@
 		            	sysPhotoCtrl.loadPhotoSystems();
 		            })
 		            .error(function (err){
-		                
+		                sysPhotoCtrl.loadPhotoSystems();
 		            });
 			}
 

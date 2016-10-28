@@ -42,7 +42,7 @@
 
         //FUNCION DE LOGOUT 
         loginCtrl.closeSession=function (){
-            //auth.logout(loginCtrl.name,loginCtrl.name);
+            auth.logout(loginCtrl.name,loginCtrl.name);
             //$location.path("/");
         };
 
